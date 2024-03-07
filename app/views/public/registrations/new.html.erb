@@ -1,38 +1,65 @@
-<h2>新規会員登録</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-  <%= f.label :名前 %><br />
-  <%= f.text_field :name %>
+  <div class="container">
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="sign-up">
+          <h2>新規会員登録</h2>
+          <div class="field">
+            <%= f.label :名前 %><br />
+            <%= f.text_field :name %>
+          </div>
 
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field">
+            <%= f.label :メールアドレス %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :パスワード %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :確認用パスワード %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          </div>
+
+          <div class="field">
+          <%= f.label :猫の名前 %><br />
+          <%= f.text_field :cat_name %>
+          </div>
+
+          <div class="field">
+          <%= f.label :猫の性別 %><br />
+          <%= f.radio_button :cat_gender, :male %>
+          <%= f.label :cat_gender_male, "♂",style: "color: blue;" %>
+
+          <%= f.radio_button :cat_gender, :female %>
+          <%= f.label :cat_gender_female, "♀",style: "color: red;" %>
+          </div>
+
+          <div class="field">
+          <%= f.label :紹介文 %><br />
+          <%= f.text_area :introduction %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "新規会員登録" %>
+          </div>
+
+          <%= render "public/shared/links" %>
+        </div>
+      </div>
+      <div class="col-4"></div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(最低<%= @minimum_password_length %>文字)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :確認用パスワード %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <%= f.label :猫の名前 %><br />
-  <%= f.text_field :cat_name %>
-
-  <%= f.label :猫の性別 %><br />
-  <%= f.text_field :name %>
-
-  <div class="actions">
-    <%= f.submit "新規会員登録" %>
-  </div>
 <% end %>
-
-<%= render "public/shared/links" %>

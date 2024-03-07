@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
   #ゲストログイン機能
-  devise_scope :customer do
+  devise_scope :customers do
     post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
 

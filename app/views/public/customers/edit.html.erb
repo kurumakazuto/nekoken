@@ -1,2 +1,37 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="edit">
+    <div class="row">
+      <div class="col-1"></div>
+      <%= form_with model: @customer do |f| %>
+      <div class="col-5">
+        <div class="edit-name">
+          <h4>名前</h4>
+          <%= f.text_field :name %><p></p>
+
+          <h4>猫の名前</h4>
+          <%= f.text_field :cat_name %><p></p>
+
+          <h4>猫の画像</h4>
+          <%= f.file_field :image, accept: "image/*" %><p></p>
+
+          <h4>猫の性別</h4>
+          <%= f.radio_button :cat_gender, :♂ %>
+          <%= f.label :cat_gender_male, "♂" %>
+
+          <%= f.radio_button :cat_gender, :♀ %>
+          <%= f.label :cat_gender_female, "♀" %>
+        </div>
+      </div>
+      <div class="col-1"></div>
+      <div class="col-4">
+        <div class="edit-introduction">
+          <h4>紹介文</h4>
+            <%= f.text_area :introduction, style: "height: 300px; width: 250px;" %><br>
+
+            <%= f.submit '変更', style: "width: 100px;" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,26 +1,30 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4 main-visual">
-      <div class="calendar">
-        カレンダー
-      </div>
-      <div class="row">
-        <%= link_to foods_path, class: "btn btn-success custom-btn" do %>
-          <i class="fa-solid fa-bowl-food"></i>
-           ご飯
-        <% end %>
-      </div>
-      <div class="row">
-        <%= link_to toilets_path, class: "btn btn-info custom-btn" do %>
-          <i class="fa-solid fa-toilet"></i>
-           トイレ
-        <% end %>
+    <div class="col-4 ">
+      <div class="main-visual">
+        <div class="calendar">
+          カレンダー
+        </div>
+        <div class="row">
+          <%= link_to foods_path, class: "btn btn-success custom-btn" do %>
+            <i class="fa-solid fa-bowl-food"></i>
+             ご飯
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to toilets_path, class: "btn btn-info custom-btn" do %>
+            <i class="fa-solid fa-toilet"></i>
+             トイレ
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-4">
       <div class="main-visual">
         <div class="name">
-          <%= @customer.name %>さんのマイページ
+          <%= link_to edit_customer_path(@customer),style: "color: black" do %>
+            <%= @customer.name %>さんのマイページ
+          <% end %>
         </div>
         <% if @customer.image.attached? %>
           <%= image_tag customer.image, size: "300x300" %>
@@ -28,10 +32,16 @@
           <%= image_tag '709572.jpg', size: "300x300" %>
         <% end %>
       </div>
-        <%= @customer.cat_name %>
-        <%= @customer.cat_gender %>
-        <自己紹介><br>
-        <%= @customer.introduction %>
+        <div class="cat-name">
+          <%= link_to edit_customer_path(@customer),style: "color: black" do %>
+            <%= @customer.cat_name %>
+          <% end %>
+          <%= @customer.cat_gender %>
+        </div>
+        <div class="introduction">
+          <自己紹介><br>
+          <%= @customer.introduction %>
+        </div>
     </div>
     <div class="col-4">
       <div class="main-visual">
@@ -41,7 +51,19 @@
           猫の画像を投稿すると、ＡＩが健康をチェックしてくれます！<br>
           例）肉球の画像など<br><p></p>
           <投稿フォーム><br>
+        </div>
+        <div class="topic">
+          情報共有をしよう！<p></p>
+          <%= form_with model: @topic do |f| %>
 
+            <p>タイトル</p>
+            <%= f.text_field :title %>
+
+            <p>本文</p>
+            <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px" %><br><p></p>
+
+            <%= f.submit '投稿', style: "width: 100px;" %>
+          <% end %>
         </div>
       </div>
     </div>

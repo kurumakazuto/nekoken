@@ -7,6 +7,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @topic = Topic.new
   end
 
   def edit

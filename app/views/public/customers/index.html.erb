@@ -1,2 +1,36 @@
-<h1>Public::Customers#index</h1>
-<p>Find me in app/views/public/customers/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="customer-index">
+      会員一覧
+      <%= image_tag '601710.jpg', size: "200x200" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <table class="table">
+        <thead>
+          <tr class="table-primary">
+            <th>名前</th>
+            <th>猫の名前</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customers.each do |customer| %>
+          <tr class="table-primary">
+            <td>
+              <%= link_to customer_path(customer.id) do %>
+                <%= customer.name %>
+              <% end %>
+            </td>
+            <td><%= customer.cat_name %></td>
+            <td>詳細</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</div>

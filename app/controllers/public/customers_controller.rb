@@ -6,7 +6,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
-    @customer = current_customer
+    @customer = find(params[:id])
     @topic = Topic.new
   end
 

@@ -5,6 +5,8 @@
       <%= form_with model: @customer do |f| %>
       <div class="col-5">
         <div class="edit-name">
+          <h3>＜会員編集＞</h3><p></p>
+
           <h4>名前</h4>
           <%= f.text_field :name %><p></p>
 
@@ -30,6 +32,7 @@
 
             <%= f.submit '変更', style: "width: 100px;" %>
         </div>
+        <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
       </div>
       <% end %>
     </div>

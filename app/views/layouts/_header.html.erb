@@ -31,7 +31,7 @@
                         </li>
                       <% elsif customer_signed_in? %>
                         <li>
-                           <%= link_to "マイページ", mypage_path, class: "mx-3", style: "color: #ffa07a;" %>
+                           <%= link_to "マイページ", customer_path(current_customer), class: "mx-3", style: "color: #ffa07a;" %>
                         </li>
                         <li>
                            <%= link_to '会員一覧',customers_path, class: "mx-3", style: "color: #ffa07a;" %>

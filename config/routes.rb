@@ -24,8 +24,7 @@ Rails.application.routes.draw do
       resources :topic_comments, only: [:create]
       resources :favorites, only: [:create, :destroy]
     end
-    resources :customers, only: [:index, :edit, :update]
-    get 'customers/my_page' => 'customers#show', as:'mypage'
+    resources :customers, only: [:index, :show, :edit, :update]
     get 'customers/unsubscribe', as:'unsubscribe'
     patch 'customers/withdraw', as:'withdraw'
     resources :calendars, only: [:new, :create, :index]

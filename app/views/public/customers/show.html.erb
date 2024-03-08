@@ -1,2 +1,49 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 main-visual">
+      <div class="calendar">
+        カレンダー
+      </div>
+      <div class="row">
+        <%= link_to foods_path, class: "btn btn-success custom-btn" do %>
+          <i class="fa-solid fa-bowl-food"></i>
+           ご飯
+        <% end %>
+      </div>
+      <div class="row">
+        <%= link_to toilets_path, class: "btn btn-info custom-btn" do %>
+          <i class="fa-solid fa-toilet"></i>
+           トイレ
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="name">
+          <%= @customer.name %>さんのマイページ
+        </div>
+        <% if @customer.image.attached? %>
+          <%= image_tag customer.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag '709572.jpg', size: "300x300" %>
+        <% end %>
+      </div>
+        <%= @customer.cat_name %>
+        <%= @customer.cat_gender %>
+        <自己紹介><br>
+        <%= @customer.introduction %>
+    </div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="health">
+          <%= @customer.cat_name %>の健康をチェック！
+          <%= image_tag '710087.jpg', size: "70x70" %><br><p></p>
+          猫の画像を投稿すると、ＡＩが健康をチェックしてくれます！<br>
+          例）肉球の画像など<br><p></p>
+          <投稿フォーム><br>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

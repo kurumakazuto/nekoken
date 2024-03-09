@@ -5,7 +5,7 @@
       <%= image_tag '601710.jpg', size: "200x200" %>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-2"></div>
     <div class="col-8">
       <table class="table">
@@ -19,13 +19,13 @@
         <tbody>
           <% @customers.each do |customer| %>
           <tr class="table-primary">
+            <td><%= customer.name %></td>
+            <td><%= customer.cat_name %></td>
             <td>
               <%= link_to customer_path(customer.id) do %>
-                <%= customer.name %>
+                詳細
               <% end %>
             </td>
-            <td><%= customer.cat_name %></td>
-            <td>詳細</td>
           </tr>
           <% end %>
         </tbody>

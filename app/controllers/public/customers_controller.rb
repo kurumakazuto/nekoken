@@ -6,18 +6,18 @@ class Public::CustomersController < ApplicationController
   end
 
   def show
-    @customer = find(params[:id])
+    @customer = Customer.find(params[:id])
     @topic = Topic.new
   end
 
   def edit
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
   end
 
   def update
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to mypage_path, notice: "更新しました。"
+      redirect_to customer_path(current_customer), notice: "更新しました。"
     else
       render "edit"
     end

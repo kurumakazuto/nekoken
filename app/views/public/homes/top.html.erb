@@ -8,7 +8,9 @@
           <div class="wf-sawarabigothic">
             ネコケンへようこそ！
             <br>さっそく愛猫の健康管理を始めよう！<p></p>
-            <br>猫の健康管理を始める
+            <br><%= link_to customer_path(current_customer) do %>
+                  健康管理を始める
+                <% end %>
           </div>
         <% else %>
           <div class="wf-sawarabigothic">

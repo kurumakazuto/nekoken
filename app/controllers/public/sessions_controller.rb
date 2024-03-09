@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
 
   def after_sign_in_path_for(resource)
-    root_path
+    customer_path(current_customer)
   end
 
   #ゲストログイン機能

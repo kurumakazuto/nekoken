@@ -21,13 +21,13 @@
                     <ul class="navbar-nav">
                       <% if admin_signed_in? %>
                         <li>
-                          <%= link_to "会員一覧",customers_path, class: "mx-3", style: "color: #ffa07a;" %>
+                          <%= link_to "会員一覧",admin_customers_path, class: "mx-3", style: "color: #ffa07a;" %>
                         </li>
                         <li>
-                          <%= link_to "投稿一覧",topics_path, class: "mx-3", style: "color: #ffa07a;" %>
+                          <%= link_to "投稿一覧",admin_topics_path, class: "mx-3", style: "color: #ffa07a;" %>
                         </li>
                         <li>
-                          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "mx-3 text-dark", style: "color: #ffa07a;" %>
+                          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "mx-3", style: "color: #ffa07a;" %>
                         </li>
                       <% elsif customer_signed_in? %>
                         <li>

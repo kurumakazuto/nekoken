@@ -10,15 +10,15 @@
     <div class="col-8">
       <table class="table">
         <thead>
-          <tr class="table-primary">
+          <tr class="table-secondary">
             <th>名前</th>
             <th>猫の名前</th>
             <th></th>
           </tr>
         </thead>
+        <% @customers.each do |customer| %>
         <tbody>
-          <% @customers.each do |customer| %>
-          <tr class="table-primary">
+          <tr class="table-light">
             <td><%= customer.name %></td>
             <td><%= customer.cat_name %></td>
             <td>

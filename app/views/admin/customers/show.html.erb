@@ -1,2 +1,59 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="name">
+          <%= @customer.name %>さんのマイページ
+          <% if @customer.is_active? %>
+            <p class="font-weight-bolder text-success">
+              <%= '有効' %>
+            </p>
+          <% else %>
+            <p class="font-weight-bolder text-muted">
+              <%= '退会' %>
+            </p>
+          <% end %>
+        </div>
+        <% if @customer.image.attached? %>
+          <%= image_tag customer.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag '709572.jpg', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class="cat-name">
+        <%= @customer.cat_name %>
+        <%= @customer.cat_gender %>
+      </div>
+      <div class="introduction">
+        <自己紹介><br>
+        <%= @customer.introduction %>
+      </div><p></p>
+      <%= link_to edit_admin_customer_path(@customer.id),class:"btn btn-secondary" do %>
+        <i class="fa-solid fa-gears"></i>
+        編集
+      <% end %>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th></th>
+          </tr>
+        </thead>
+        <%= @topics. each do |topic| %>
+        <tbdoy>
+          <tr>
+            <td><%= topic.title %></td>
+            <td><%= topic.introducition %></td>
+            <td><%= link_to "詳細",topic_path(topic.id) %></td>
+          </tr>
+        </tbdoy>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

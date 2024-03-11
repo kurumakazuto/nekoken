@@ -16,9 +16,13 @@
         </thead>
         <% @customers.each do |customer| %>
         <tbody>
-          <tr class="table-warning">
+          <tr class="table-light">
             <td><%= customer.id %></td>
-            <td><%= customer.name %></td>
+            <td>
+              <%= link_to admin_customer_path(customer.id), style: "color: black" do %>
+                <%= customer.name %>
+              <% end %>
+              </td>
             <td><%= customer.email %></td>
             <td>
               <% if customer.is_active? %>

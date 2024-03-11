@@ -17,6 +17,12 @@
              トイレ
           <% end %>
         </div>
+        <div class="row">
+          <%= link_to mytopics_path, class: "btn btn-secondary custom-btn" do %>
+            <i class="fa-solid fa-book-open"></i>
+             投稿履歴
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-4">
@@ -26,22 +32,22 @@
             <%= @customer.name %>さんのマイページ
           <% end %>
         </div>
-        <% if @customer.image.attached? %>
-          <%= image_tag customer.image, size: "300x300" %>
-        <% else %>
-          <%= image_tag '709572.jpg', size: "300x300" %>
-        <% end %>
-      </div>
-        <div class="cat-name">
-          <%= link_to edit_customer_path(@customer),style: "color: black" do %>
-            <%= @customer.cat_name %>
+          <% if @customer.image.attached? %>
+            <%= image_tag customer.image, size: "300x300" %>
+          <% else %>
+            <%= image_tag '709572.jpg', size: "300x300" %>
           <% end %>
-          <%= @customer.cat_gender %>
-        </div>
-        <div class="introduction">
-          <自己紹介><br>
-          <%= @customer.introduction %>
-        </div>
+      </div>
+      <div class="cat-name">
+        <%= link_to edit_customer_path(@customer),style: "color: black" do %>
+          <%= @customer.cat_name %>
+        <% end %>
+        <%= @customer.cat_gender %>
+      </div>
+      <div class="introduction">
+        <自己紹介><br>
+        <%= @customer.introduction %>
+      </div>
     </div>
     <div class="col-4">
       <div class="main-visual">
@@ -52,9 +58,9 @@
           例）肉球の画像など<br><p></p>
           <投稿フォーム><br>
         </div>
+        <%= form_with model: @topic do |f| %>
         <div class="topic">
           情報共有をしよう！<p></p>
-          <%= form_with model: @topic do |f| %>
 
             <p>タイトル</p>
             <%= f.text_field :title %>

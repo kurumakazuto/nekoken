@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe', as:'unsubscribe'
     patch 'customers/withdraw', as:'withdraw'
     resources :calendars, only: [:new, :create, :index]
-    resources :foods, only: [:new, :create, :index]
-    resources :toilets, only: [:new, :create, :index]
+    resources :foods, only: [:new, :create, :index, :show]
+    resources :toilets, only: [:new, :create, :index, :show]
   end
   #管理者側のルーティング設定
   namespace :admin do

@@ -1,3 +1,5 @@
+<% if @customer == current_customer %>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-4 ">
@@ -58,7 +60,7 @@
           例）肉球の画像など<br><p></p>
           <投稿フォーム><br>
         </div>
-        <%= form_with model: @topic do |f| %>
+        <%= form_with model: @topic, url: topics_path do |f| %>
         <div class="topic">
           情報共有をしよう！<p></p>
 
@@ -68,6 +70,9 @@
             <p>本文</p>
             <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px" %><br><p></p>
 
+            <p>画像</p>
+            <%= f.file_field :image, accept: "image/*" %><p></p>
+
             <%= f.submit '投稿', style: "width: 100px;" %>
           <% end %>
         </div>
@@ -75,3 +80,56 @@
     </div>
   </div>
 </div>
+
+<% else %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="name">
+          <%= @customer.name %>さんのマイページ
+        </div>
+        <% if @customer.image.attached? %>
+          <%= image_tag customer.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag '709572.jpg', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class="cat-name">
+        <%= @customer.cat_name %>
+        <%= @customer.cat_gender %>
+      </div>
+      <div class="introduction">
+        <自己紹介><br>
+        <%= @customer.introduction %>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6 mt-5">
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>タイトル</th>
+            <th>本文</th>
+          </tr>
+        </thead>
+        <% @topics. each do |topic| %>
+        <tbody>
+          <tr class="table-light">
+            <td><%= topic.title %></td>
+            <td>
+              <%= link_to admin_topic_path(topic.id) do %>
+                <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+
+<% end %>

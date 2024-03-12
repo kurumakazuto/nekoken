@@ -1,5 +1,6 @@
 class Toilet < ApplicationRecord
   
-  has_many :events, dependent: :destroy
   belongs_to :customer
+  
+  has_one_attached :image
 end

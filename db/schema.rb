@@ -77,16 +77,6 @@ ActiveRecord::Schema.define(version: 2024_03_07_134545) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "events", force: :cascade do |t|
-    t.integer "food_id", null: false
-    t.integer "toilet_id", null: false
-    t.string "month", null: false
-    t.string "day", null: false
-    t.string "day_of_week", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "topic_id", null: false
@@ -97,6 +87,11 @@ ActiveRecord::Schema.define(version: 2024_03_07_134545) do
   create_table "foods", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.string "name", null: false
+    t.integer "amount", null: false
+    t.string "month", null: false
+    t.string "day", null: false
+    t.string "day_of_week", null: false
+    t.string "time_zone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -104,6 +99,10 @@ ActiveRecord::Schema.define(version: 2024_03_07_134545) do
   create_table "toilets", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.string "name", null: false
+    t.string "month", null: false
+    t.string "day", null: false
+    t.string "day_of_week", null: false
+    t.string "time_zone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

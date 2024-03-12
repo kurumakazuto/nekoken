@@ -18,7 +18,7 @@ class Public::TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @customer = Customer.find(params[:id])
+    @customer = @topic.customer
   end
 
   def destroy
@@ -30,6 +30,6 @@ class Public::TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:title, :introduction)
+    params.require(:topic).permit(:title, :introduction, :image)
   end
 end

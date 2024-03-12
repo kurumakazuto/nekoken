@@ -1,40 +1,43 @@
 <div class="container-fluid">
   <div class="edit">
-    <div class="row">
-      <div class="col-1"></div>
-      <%= form_with model: @customer do |f| %>
-      <div class="col-5">
-        <div class="edit-name">
-          <h3>＜会員編集＞</h3><p></p>
 
-          <h4>名前</h4>
-          <%= f.text_field :name %><p></p>
+    <%= form_with model: @customer do |f| %>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-5">
+          <div class="edit-name">
+            <h3>＜会員編集＞</h3><p></p>
 
-          <h4>猫の名前</h4>
-          <%= f.text_field :cat_name %><p></p>
+            <h4>名前</h4>
+            <%= f.text_field :name %><p></p>
 
-          <h4>猫の画像</h4>
-          <%= f.file_field :image, accept: "image/*" %><p></p>
+            <h4>猫の名前</h4>
+            <%= f.text_field :cat_name %><p></p>
 
-          <h4>猫の性別</h4>
-          <%= f.radio_button :cat_gender, :♂ %>
-          <%= f.label :cat_gender_male, "♂" %>
+            <h4>猫の画像</h4>
+            <%= f.file_field :image, accept: "image/*" %><p></p>
 
-          <%= f.radio_button :cat_gender, :♀ %>
-          <%= f.label :cat_gender_female, "♀" %>
+            <h4>猫の性別</h4>
+            <%= f.radio_button :cat_gender, :♂ %>
+            <%= f.label :cat_gender_male, "♂" %>
+
+            <%= f.radio_button :cat_gender, :♀ %>
+            <%= f.label :cat_gender_female, "♀" %>
+          </div>
         </div>
-      </div>
-      <div class="col-1"></div>
-      <div class="col-4">
-        <div class="edit-introduction">
-          <h4>紹介文</h4>
+        <div class="col-5">
+          <div class="edit-introduction">
+            <h4>紹介文</h4>
             <%= f.text_area :introduction, style: "height: 300px; width: 250px;" %><br>
-
             <%= f.submit '変更', style: "width: 100px;" %>
+          </div>
         </div>
-        <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
+        <div class="col-2"></div>
       </div>
-      <% end %>
-    </div>
+    <% end %>
+  </div>
+  <div class="row mt-5">
+    <div class="col-8"></div>
+    <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
   </div>
 </div>

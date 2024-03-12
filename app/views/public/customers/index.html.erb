@@ -13,19 +13,17 @@
           <tr class="table-secondary">
             <th>名前</th>
             <th>猫の名前</th>
-            <th></th>
           </tr>
         </thead>
         <% @customers.each do |customer| %>
         <tbody>
           <tr class="table-light">
-            <td><%= customer.name %></td>
-            <td><%= customer.cat_name %></td>
             <td>
-              <%= link_to customer_path(customer.id) do %>
-                詳細
+              <%= link_to customer_path(customer.id), style: "color: black" do %>
+                <%= customer.name %>
               <% end %>
             </td>
+            <td><%= customer.cat_name %></td>
           </tr>
           <% end %>
         </tbody>

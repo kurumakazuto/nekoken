@@ -7,6 +7,7 @@ class Admin::TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @customer = @topic.customer
   end
 
   def edit

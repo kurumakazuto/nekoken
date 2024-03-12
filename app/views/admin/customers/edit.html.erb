@@ -1,2 +1,37 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <%= form_with model: @customer ,url: admin_customer_path(@customer.id), method: :patch do |f| %>
+    <div class="col-5">
+        <h3>＜会員編集＞</h3><p></p>
+
+        <h4>名前</h4>
+        <%= f.text_field :name %><p></p>
+
+        <h4>猫の名前</h4>
+        <%= f.text_field :cat_name %><p></p>
+
+        <h4>猫の画像</h4>
+        <%= f.file_field :image, accept: "image/*" %><p></p>
+
+        <h4>猫の性別</h4>
+        <%= f.radio_button :cat_gender, :♂ %>
+        <%= f.label :cat_gender_male, "♂" %>
+
+        <%= f.radio_button :cat_gender, :♀ %>
+        <%= f.label :cat_gender_female, "♀" %>
+
+        <h4>会員ステータス</h4>
+         <%= f.radio_button :is_active, :active %><%= f.label :is_active,"有効" %>&emsp;
+         <%= f.radio_button :is_active, :inactive %><%= f.label :is_active,"退会" %>
+    </div>
+    <div class="col-5">
+       <h4>紹介文</h4>
+       <%= f.text_area :introduction, style: "height: 300px; width: 250px;" %><br>
+
+       <%= f.submit '変更', style: "width: 100px;" %>
+    </div>
+    <% end %>
+    <div class="col-1"></div>
+  </div>
+</div>

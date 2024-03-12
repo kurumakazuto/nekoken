@@ -1,2 +1,17 @@
-<h1>Admin::Topics#show</h1>
-<p>Find me in app/views/admin/topics/show.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      
+      <div class="topic-title">
+      <h5><b>タイトル</b></h5>
+        <%= @topic.title %>
+      </div>
+      <div class="topic-introduction">
+        <h5><b>本文</b></h5>
+        <%= @topic.introduction %>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

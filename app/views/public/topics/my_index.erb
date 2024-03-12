@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <% @topics. each do |topic| %>
-        <tbdoy>
+        <tbody>
           <tr class="table-light">
             <td><%= topic.title %></td>
             <td>
@@ -19,8 +19,8 @@
               <% end %>
             </td>
           </tr>
-        </tbdoy>
-        <% end %>
+          <% end %>
+        </tbody>
       </table>
     </div>
     <div class="col-1"></div>

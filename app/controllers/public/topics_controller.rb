@@ -8,15 +8,17 @@ class Public::TopicsController < ApplicationController
     @customer = current_customer
     @topics = @customer.topics
   end
-  
+
   def create
     @topic = Topic.new(topic_params)
     @topic.customer_id = current_customer.id
     @topic.save
+    redirect_to topic_path(@topic.id)
   end
 
   def show
     @topic = Topic.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def destroy

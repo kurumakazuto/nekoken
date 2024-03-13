@@ -1,6 +1,8 @@
 <div class="container-fluid">
+  <div class="customer-edit-errors">
+    <%= render "public/shared/errors", obj: @customer %>
+  </div>
   <div class="edit">
-
     <%= form_with model: @customer do |f| %>
       <div class="row">
         <div class="col-2"></div>
@@ -28,7 +30,7 @@
         <div class="col-5">
           <div class="edit-introduction">
             <h4>紹介文</h4>
-            <%= f.text_area :introduction, style: "height: 300px; width: 250px;" %><br>
+            <%= f.text_area :introduction, style: "height: 250px; width: 250px;" %><br>
             <%= f.submit '変更', style: "width: 100px;" %>
           </div>
         </div>

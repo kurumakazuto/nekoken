@@ -12,8 +12,13 @@ class Public::TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.customer_id = current_customer.id
-    @topic.save
-    redirect_to topic_path(@topic.id)
+    if @topic.save
+      redirect_to topic_path(@topic.id)
+    else
+      #@customer = current_customer
+      #render :show
+      redirect_to customer_path(current_customer)
+    end
   end
 
   def show

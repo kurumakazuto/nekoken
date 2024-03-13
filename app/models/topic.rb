@@ -6,6 +6,9 @@ class Topic < ApplicationRecord
 
    has_one_attached :image
 
+   validates :title, presence: true
+   validates :introduction, presence: true
+
 
      def self.looks(search, word)
        if search == "perfect_match"

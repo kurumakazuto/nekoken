@@ -60,6 +60,7 @@
           例）肉球の画像など<br><p></p>
           <投稿フォーム><br>
         </div>
+        <%= render "public/shared/errors", obj: @topic %>
         <%= form_with model: @topic, url: topics_path do |f| %>
         <div class="topic">
           情報共有をしよう！<p></p>

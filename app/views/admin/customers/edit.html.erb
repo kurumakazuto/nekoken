@@ -1,3 +1,4 @@
+<%= render "public/shared/error_messages" %>
 <div class="container-fluid">
   <div class="edit">
     <%= form_with model: @customer ,url: admin_customer_path(@customer.id), method: :patch do |f| %>

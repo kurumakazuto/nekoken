@@ -6,9 +6,11 @@ class Public::FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params)
+    @food = current_customer.foods.new(food_params)
+    # @food = Food.new(food_params)
+    # @food.customer = current_customer
+    
     if @food.save
-      byebug
       redirect_to foods_path
     else
       @foods = Food.all

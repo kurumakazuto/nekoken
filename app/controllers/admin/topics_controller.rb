@@ -1,7 +1,6 @@
 class Admin::TopicsController < ApplicationController
 
   def index
-    @customers = Customer.all
     @topics = Topic.all
   end
 

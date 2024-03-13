@@ -5,12 +5,17 @@
       <%= image_tag '425674.jpg', size: "200x200" %>
     </div>
   </div>
+  <div class="row d-flex justify-content-end">
+    <%= render 'public/shared/search' %>
+    <div class="col-1"></div>
+  </div>
   <div class="row mt-2">
     <div class="col-1"></div>
     <div class="col-10">
        <table class="table">
         <thead>
           <tr class="table-secondary">
+            <th>名前</th>
             <th>タイトル</th>
             <th>本文</th>
           </tr>
@@ -18,6 +23,7 @@
         <% @topics. each do |topic| %>
         <tbody>
           <tr class="table-light">
+            <td><%= topic.customer.name %></td>
             <td><%= topic.title %></td>
             <td>
               <%= link_to topic_path(topic.id), style: "color: black" do %>

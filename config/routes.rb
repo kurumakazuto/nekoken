@@ -31,11 +31,13 @@ Rails.application.routes.draw do
     resources :calendars, only: [:new, :create, :index]
     resources :foods, only: [:new, :create, :index, :show]
     resources :toilets, only: [:new, :create, :index, :show]
+    get "search" => "searches#search"
   end
   #管理者側のルーティング設定
   namespace :admin do
     root to: 'homes#top'
     resources :topics, only: [:index, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
+    get "search" => "searches#search"
   end
 end

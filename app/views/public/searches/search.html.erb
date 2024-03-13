@@ -1,0 +1,43 @@
+<table class="table">
+  <% if @range == "タイトル" %>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>タイトル</th>
+        <th>本文</th>
+      </tr>
+    </thead>
+    <tbody>
+    <h2>タイトルに<%= @word %>を含めた検索結果</h2>
+    <% @topics_title.each do |topic| %>
+      <tr>
+        <td>
+          <%= topic.customer.name %>
+        </td>
+        <td><%= topic.title %></td>
+        <td><%= topic.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>タイトル</th>
+        <th>本文</th>
+      </tr>
+    </thead>
+    <tbody>
+    <h2>本文に<%= @word %>を含めた検索結果</h2>
+    <% @topics_introduction.each do |topic| %>
+      <tr>
+        <td>
+          <%= topic.customer.name %>
+        </td>
+        <td><%= topic.title %></td>
+        <td><%= topic.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>

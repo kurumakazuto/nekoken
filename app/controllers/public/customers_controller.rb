@@ -8,7 +8,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @topic = Topic.new
-    @topics = Topic.all
+    @topics = @customer.topics.all
   end
 
   def edit

@@ -1,2 +1,116 @@
-<h1>Public::Toilets#index</h1>
-<p>Find me in app/views/public/toilets/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row my-3 d-flex justify-content-center">
+    <div class="toilet-index">
+      トイレ
+      <%= image_tag '481908.jpg', size: "200x200" %>
+    </div>
+  </div>
+  <%= form_with model: @toilet do |f| %>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="toilet-errors">
+        <%= render "public/shared/errors", obj: @toilet %>
+      </div>
+      <h4>トイレの記録</h4>
+      <div class="row d-flex align-content-center table-primary" style="height: 50px">
+        <div class="col-1">
+          <b>月</b>
+        </div>
+        <div class="col-1">
+          <b>日</b>
+        </div>
+        <div class="col-2">
+          <b>曜日</b>
+        </div>
+        <div class="col-2">
+          <b>時間帯</b>
+        </div>
+        <div class="col-2">
+          <b>トイレの内容</b>
+        </div>
+        <div class="col-3">
+          <b>備考</b>
+        </div>
+      </div>
+      <div class="row d-flex align-content-center table-light" style="height: 50px">
+        <div class="col-1">
+          <%= f.select :month, *[1..12]  %><b>月</b>
+        </div>
+        <div class="col-1">
+          <%= f.select :day, *[1..31]  %><b>日</b>
+        </div>
+        <div class="col-2">
+          <%= f.select :day_of_week, [["月"],["火"],["水"],["木"],["金"],["土"],["日"]],{} %><b>曜日</b>
+        </div>
+        <div class="col-2">
+          <%= f.select :time_zone, *[1..24]  %><b>時</b>
+        </div>
+        <div class="col-2">
+          <%= f.text_field :name, size:10 %>
+        </div>
+        <div class="col-3">
+          <%= f.text_field :remarks %>
+        </div>
+         <div class-"col-1">
+          <%= f.submit '記録する' %>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <h4>トイレの記録一覧</h4>
+      </div>
+      <div class="row d-flex align-content-center table-primary" style="height: 50px">
+        <div class="col-1">
+          <b>月</b>
+        </div>
+        <div class="col-1">
+          <b>日</b>
+        </div>
+        <div class="col-2">
+          <b>曜日</b>
+        </div>
+        <div class="col-2">
+          <b>時間帯</b>
+        </div>
+        <div class="col-2">
+          <b>トイレの内容</b>
+        </div>
+        <div class="col-3">
+          <b>備考</b>
+        </div>
+      </div>
+      <% @toilets. each do |toilet| %>
+      <div class="row d-flex align-content-center table-light" style="height: 50px">
+         <div class="col-1">
+          <%= toilet.month %><b>月</b>
+        </div>
+        <div class="col-1">
+          <%= toilet.day %><b>日</b>
+        </div>
+        <div class="col-2">
+          <%= toilet.day_of_week %><b>曜日</b>
+        </div>
+        <div class="col-2">
+          <%= toilet.time_zone %><b>時</b>
+        </div>
+        <div class="col-2">
+          <%= toilet.name %>
+        </div>
+        <div class="col-3">
+          <% if toilet.remarks %>
+              <%= toilet.remarks %>
+          <% end %>
+        </div>
+        <div class="col-1">
+          <%= link_to '削除', toilet_path(toilet.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    
+  </div>
+  <% end %>
+  
+</div>
+

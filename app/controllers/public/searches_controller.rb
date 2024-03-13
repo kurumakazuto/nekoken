@@ -4,7 +4,7 @@ class Public::SearchesController < ApplicationController
   def search
     @range = params[:range]
     @word = params[:word]
-
+    
     if @range == "タイトル"
       @topics_title = Topic.looks(params[:search], params[:word])
     else
@@ -13,3 +13,4 @@ class Public::SearchesController < ApplicationController
   end
 
 end
+

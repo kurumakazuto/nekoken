@@ -15,9 +15,8 @@ class Public::TopicsController < ApplicationController
     if @topic.save
       redirect_to topic_path(@topic.id)
     else
-      #@customer = current_customer
-      #render :show
-      redirect_to customer_path(current_customer)
+      @customer = current_customer
+      render 'public/customers/show'
     end
   end
 

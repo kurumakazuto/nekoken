@@ -29,8 +29,8 @@ Rails.application.routes.draw do
     get 'customers/unsubscribe', as:'unsubscribe'
     patch 'customers/withdraw', as:'withdraw'
     resources :calendars, only: [:new, :create, :index]
-    resources :foods, only: [:new, :create, :index, :show]
-    resources :toilets, only: [:new, :create, :index, :show]
+    resources :foods, only: [:new, :create, :index, :destroy]
+    resources :toilets, only: [:new, :create, :index, :destroy]
     get "search" => "searches#search"
   end
   #管理者側のルーティング設定

@@ -133,7 +133,7 @@ body {
 //マイページ右下の情報共有部分
 .topic {
   width: 350px;
-  height: 650px;
+  height: 680px;
   background-color: #ffffe0;
   margin-top: 50px;
   padding: 10px;
@@ -208,14 +208,26 @@ body {
   white-space: pre-line;
 }
 
-//ご飯一覧
-.food-index {
+//ご飯とトイレ一覧
+.food-index,.toilet-index {
   font-family: "M PLUS Rounded 1c";
   font-size: 40px;
+}
+
+
+//会員詳細のエラー文
+.customer-show-errors {
+  margin: 20px 20px 0 0;
+  color: red;
 }
 
 //会員編集のエラー文
 .customer-edit-errors {
   margin-left: 400px;
+  color: red;
+}
+
+//ご飯投稿のエラー文
+.food-errors,.toilet-errors {
   color: red;
 }

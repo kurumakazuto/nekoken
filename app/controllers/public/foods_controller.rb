@@ -18,10 +18,6 @@ class Public::FoodsController < ApplicationController
     end
   end
 
-  def show
-    @food = Food.find(params[:id])
-  end
-
   def destroy
     food = Food.find(params[:id])
     food.destroy
@@ -31,6 +27,6 @@ class Public::FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :amount, :month, :day, :day_of_week, :time_zone, :remarks, :image)
+    params.require(:food).permit(:name, :amount, :month, :day, :day_of_week, :time_zone, :remarks )
   end
 end

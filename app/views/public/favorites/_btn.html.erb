@@ -1,0 +1,11 @@
+<% if topic.favorited_by?(current_customer) %>
+  <%= link_to topic_favorites_path(topic), method: :delete do %>
+    <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+    <%= topic.favorites.count %>
+  <% end %>
+<% else %>
+  <%= link_to topic_favorites_path(topic), method: :post do %>
+    <i class="fas fa-heart" aria-hidden="true"></i>
+    <%= topic.favorites.count %> いいね
+  <% end %>
+<% end %>

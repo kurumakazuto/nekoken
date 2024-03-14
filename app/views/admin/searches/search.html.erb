@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-    <h2>タイトルに<%= @word %>を含めた検索結果</h2>
+    <h2>検索結果</h2>
     <% @topics_title.each do |topic| %>
       <tr>
         <td>
@@ -17,6 +17,9 @@
         <td><%= topic.title %></td>
         <td><%= topic.introduction %></td>
         </tr>
+      <% end %>
+      <% if @topics_title.count == 0 %>
+        <h4>検索に一致するものはありませんでした</h4>
       <% end %>
     </tbody>
   <% else %>
@@ -28,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-    <h2>本文に<%= @word %>を含めた検索結果</h2>
+    <h2>検索結果</h2>
     <% @topics_introduction.each do |topic| %>
       <tr>
         <td>
@@ -37,6 +40,9 @@
         <td><%= topic.title %></td>
         <td><%= topic.introduction %></td>
         </tr>
+      <% end %>
+      <% if @topics_introduction.count == 0 %>
+        <h4>検索に一致するものはありませんでした</h4>
       <% end %>
     </tbody>
   <% end %>

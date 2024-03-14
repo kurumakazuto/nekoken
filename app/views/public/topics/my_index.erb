@@ -8,6 +8,8 @@
             <th>タイトル</th>
             <th>本文</th>
             <th>画像</th>
+            <th></th>
+            <th></th>
             <th>#タグ</th>
             <th></th>
           </tr>
@@ -26,12 +28,14 @@
                 <%= image_tag topic.image, size: "30x30" %>
               <% end %>
             </td>
+            <td><%= render "public/favorites/btn", topic: topic %></td>
+            <td>コメント</td>
             <td>
               <% if topic.category.present? %>
-                <%= link_to topic.category,tagsearches_saearch_path(content: topic.category) %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
               <% end %>
             </td>
-            <td><%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+            <td><%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
           </tr>
           <% end %>
         </tbody>

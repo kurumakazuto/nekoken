@@ -7,7 +7,4 @@ class Public::TagsearchesController < ApplicationController
     render "public/tagsearches/tagsearch"
   end
   
-  def choice
-  
-  end
 end

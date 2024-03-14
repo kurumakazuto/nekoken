@@ -12,9 +12,7 @@
          <%= render 'public/shared/search' %>
        </div>
        <div class="row">
-         <% @topics. each do |topic| %>
-           <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
-         <% end %>
+        <%= render 'public/tagsearches/tagsearch',topics: @topics %>
        </div>
        <table class="table">
         <thead>
@@ -23,6 +21,8 @@
             <th>タイトル</th>
             <th>本文</th>
             <th>画像</th>
+            <th></th>
+            <th></th>
             <th>#タグ</th>
           </tr>
         </thead>
@@ -41,6 +41,8 @@
                 <%= image_tag topic.image, size: "30x30" %>
               <% end %>
             </td>
+            <td><%= render "public/favorites/btn", topic: topic %></td>
+            <td>コメント</td>
             <td>
               <% if topic.category.present? %>
                 <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>

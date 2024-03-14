@@ -12,7 +12,9 @@
   <% @topics.each do |topic| %>
     <tr>
       <td>
-        <%= topic.customer.name %>
+        <%= link_to customer_path(topic.customer.id) do %>
+          <%= topic.customer.name %>
+        <% end %>
       </td>
       <td><%= topic.title %></td>
       <td><%= topic.introduction %></td>

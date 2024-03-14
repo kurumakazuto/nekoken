@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'my_topics' => 'topics#my_index', as:'mytopics'
     resources :topics, only: [:new, :create, :index, :show, :destroy] do
       resources :topic_comments, only: [:create]
-      resources :favorites, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'

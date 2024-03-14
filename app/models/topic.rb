@@ -8,6 +8,7 @@ class Topic < ApplicationRecord
 
    validates :title, presence: true
    validates :introduction, presence: true
+   validates :category, presence: true
 
 
      def self.looks(search, word)

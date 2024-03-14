@@ -75,6 +75,9 @@
             <p>画像</p>
             <%= f.file_field :image, accept: "image/*" %><p></p>
 
+            <p>#タグ</p>
+            <%= f.text_field :category, style: "width: 150px;" %>
+
             <%= f.submit '投稿', style: "width: 100px;" %>
           <% end %>
         </div>

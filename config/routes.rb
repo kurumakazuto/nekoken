@@ -25,18 +25,19 @@ Rails.application.routes.draw do
       resources :topic_comments, only: [:create]
       resources :favorites, only: [:create, :destroy]
     end
-    resources :customers, only: [:index, :show, :edit, :update]
-    get 'customers/unsubscribe', as:'unsubscribe'
-    patch 'customers/withdraw', as:'withdraw'
+    patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
+    get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :calendars, only: [:new, :create, :index]
     resources :foods, only: [:new, :create, :index, :destroy]
     resources :toilets, only: [:new, :create, :index, :destroy]
     get "search" => "searches#search"
+    get 'tagsearches/search', to: 'tagsearches#search'
   end
   #管理者側のルーティング設定
   namespace :admin do
     root to: 'homes#top'
-    resources :topics, only: [:index, :show, :edit, :update]
+    resources :topics, only: [:index, :show, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     get "search" => "searches#search"
   end

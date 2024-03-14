@@ -16,6 +16,7 @@
             <th>氏名</th>
             <th>タイトル</th>
             <th>本文</th>
+            <th>画像</th>
           </tr>
         </thead>
         <% @topics.each do |topic| %>
@@ -31,6 +32,11 @@
             <td>
               <%= link_to admin_topic_path(topic.id), style: "color: black" do %>
                 <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
               <% end %>
             </td>
           </tr>

@@ -133,7 +133,7 @@ body {
 //マイページ右下の情報共有部分
 .topic {
   width: 350px;
-  height: 680px;
+  height: 700px;
   background-color: #ffffe0;
   margin-top: 50px;
   padding: 10px;
@@ -230,4 +230,13 @@ body {
 //ご飯投稿のエラー文
 .food-errors,.toilet-errors {
   color: red;
+}
+
+//退会確認画面
+.unsubscribe {
+  margin-top: 100px;
+  padding: 10px;
+  width: 600px;
+  height: 200px;
+  background-color:white;
 }

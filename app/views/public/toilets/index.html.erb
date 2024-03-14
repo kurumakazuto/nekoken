@@ -2,7 +2,7 @@
   <div class="row my-3 d-flex justify-content-center">
     <div class="toilet-index">
       トイレ
-      <%= image_tag '481908.jpg', size: "200x200" %>
+      <%= image_tag '575844.jpg', size: "200x200" %>
     </div>
   </div>
   <%= form_with model: @toilet do |f| %>
@@ -58,59 +58,39 @@
       </div>
       <div class="row mt-5">
         <h4>トイレの記録一覧</h4>
-      </div>
-      <div class="row d-flex align-content-center table-primary" style="height: 50px">
-        <div class="col-1">
-          <b>月</b>
-        </div>
-        <div class="col-1">
-          <b>日</b>
-        </div>
-        <div class="col-2">
-          <b>曜日</b>
-        </div>
-        <div class="col-2">
-          <b>時間帯</b>
-        </div>
-        <div class="col-2">
-          <b>トイレの内容</b>
-        </div>
-        <div class="col-3">
-          <b>備考</b>
-        </div>
-      </div>
-      <% @toilets. each do |toilet| %>
-      <div class="row d-flex align-content-center table-light" style="height: 50px">
-         <div class="col-1">
-          <%= toilet.month %><b>月</b>
-        </div>
-        <div class="col-1">
-          <%= toilet.day %><b>日</b>
-        </div>
-        <div class="col-2">
-          <%= toilet.day_of_week %><b>曜日</b>
-        </div>
-        <div class="col-2">
-          <%= toilet.time_zone %><b>時</b>
-        </div>
-        <div class="col-2">
-          <%= toilet.name %>
-        </div>
-        <div class="col-3">
-          <% if toilet.remarks %>
-              <%= toilet.remarks %>
-          <% end %>
-        </div>
-        <div class="col-1">
-          <%= link_to '削除', toilet_path(toilet.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
-        </div>
-        <% end %>
-      </div>
+      <table class="table">
+        <thead>
+          <tr class="table-primary">
+            <th>月</th>
+            <th>日</th>
+            <th>曜日</th>
+            <th>時間帯</th>
+            <th>トイレの内容</th>
+            <th>備考</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @toilets. each do |toilet| %>
+        <tbody>
+          <tr class="table-light">
+            <td><%= toilet.month %>月</td>
+            <td><%= toilet.day %>日</td>
+            <td><%= toilet.day_of_week %>曜日</td>
+            <td><%= toilet.time_zone %>時</td>
+            <td><%= toilet.name %></td>
+            <% if toilet.remarks %>
+              <td><%= toilet.remarks %></td>
+            <% end %>
+            <td><%= link_to '削除', toilet_path(toilet.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
     </div>
     <div class="col-1"></div>
-    
+
   </div>
   <% end %>
-  
+
 </div>
 

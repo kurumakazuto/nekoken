@@ -5,19 +5,25 @@
       <%= image_tag '425674.jpg', size: "200x200" %>
     </div>
   </div>
-  <div class="row d-flex justify-content-end">
-    <%= render 'public/shared/search' %>
-    <div class="col-1"></div>
-  </div>
   <div class="row mt-2">
     <div class="col-1"></div>
     <div class="col-10">
+       <div class="row d-flex justify-content-end">
+         <%= render 'public/shared/search' %>
+       </div>
+       <div class="row">
+         <% @topics. each do |topic| %>
+           <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+         <% end %>
+       </div>
        <table class="table">
         <thead>
           <tr class="table-secondary">
             <th>名前</th>
             <th>タイトル</th>
             <th>本文</th>
+            <th>画像</th>
+            <th>#タグ</th>
           </tr>
         </thead>
         <% @topics. each do |topic| %>
@@ -28,6 +34,16 @@
             <td>
               <%= link_to topic_path(topic.id), style: "color: black" do %>
                 <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
               <% end %>
             </td>
           </tr>

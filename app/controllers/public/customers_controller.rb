@@ -34,6 +34,12 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
+  
+  def favorites
+    @customer = Customer.find(params[:id])
+    favorites = Favorite.where(customer_id: @customer.id).pluck(:topic_id)
+    @favorite_topics = Topic.find(favorites)
+  end
 
   private
 

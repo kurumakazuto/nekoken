@@ -61,7 +61,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @foods. each do |food| %>
+        <% @foods. reverse_each do |food| %>
         <tbody>
           <tr class="table-light">
             <td><%= food.month %>月</td>

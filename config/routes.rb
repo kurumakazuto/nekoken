@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     end
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: 'unsubscribe'
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy] do
+      member do
+        get :favorites
+      end
+    end
     resources :calendars, only: [:new, :create, :index]
     resources :foods, only: [:new, :create, :index, :destroy]
     resources :toilets, only: [:new, :create, :index, :destroy]

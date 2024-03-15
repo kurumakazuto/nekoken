@@ -17,7 +17,6 @@ class Customer < ApplicationRecord
   validates :cat_name, presence: true
   validates :cat_gender, presence: true
   validates :introduction, length: { maximum: 200 }
-  validates :category, length: { maximum: 8 }
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|

@@ -1,5 +1,6 @@
+<h2 class="m-5 d-flex justify-content-center">投稿履歴</h2>
 <div class="container-fluid">
-  <div class="row mt-5">
+  <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
        <table class="table">
@@ -14,7 +15,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @topics. each do |topic| %>
+        <% @topics. reverse_each do |topic| %>
         <tbody>
           <tr class="table-light">
             <td><%= topic.title %></td>
@@ -35,7 +36,9 @@
                 <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
               <% end %>
             </td>
-            <td><%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+            <td>
+              <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+            </td>
           </tr>
           <% end %>
         </tbody>

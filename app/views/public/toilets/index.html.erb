@@ -70,7 +70,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @toilets. each do |toilet| %>
+        <% @toilets. reverse_each do |toilet| %>
         <tbody>
           <tr class="table-light">
             <td><%= toilet.month %>月</td>

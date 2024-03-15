@@ -1,53 +1,113 @@
-<table class="table">
-  <% if @range == "タイトル" %>
-    <thead>
-      <tr>
-        <th>名前</th>
-        <th>タイトル</th>
-        <th>本文</th>
-      </tr>
-    </thead>
-    <tbody>
-    <h2>検索結果</h2>
-    <% @topics_title.each do |topic| %>
-      <tr>
-        <td>
-          <%= link_to customer_path(topic.customer.id) do %>
-            <%= topic.customer.name %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table">
+        <% if @range == "タイトル" %>
+          <thead>
+            <tr class="table-secondary">
+              <th>名前</th>
+              <th>タイトル</th>
+              <th>本文</th>
+              <th>画像</th>
+              <th></th>
+              <th></th>
+              <th>#タグ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <h2 class="m-5 d-flex justify-content-center">検索結果</h2>
+          <% @topics_title.reverse_each do |topic| %>
+            <tr class="table-light">
+              <td>
+                <%= link_to customer_path(topic.customer.id), style: "color: black"  do %>
+                  <%= topic.customer.name %>
+                <% end %>
+              </td>
+              <td><%= topic.title %></td>
+              <td>
+                <%= link_to topic_path(topic.id), style: "color: black" do %>
+                  <%= truncate(topic.introduction, length: 25) %>
+                <% end %>
+              </td>
+              <td>
+                <% if topic.image.present? %>
+                  <%= image_tag topic.image, size: "30x30" %>
+                <% end %>
+              </td>
+              <td><%= render "public/favorites/btn", topic: topic %></td>
+              <td>コメント</td>
+              <td>
+                <% if topic.category.present? %>
+                  <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+                <% end %>
+              </td>
+              <td>
+                <% if topic.customer == current_customer %>
+                  <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          <% if @topics_title.count == 0 %>
+            <h4 class="m-2">検索に一致するものはありませんでした</h4>
           <% end %>
-        </td>
-        <td><%= topic.title %></td>
-        <td><%= topic.introduction %></td>
-        </tr>
-      <% end %>
-    <% if @topics_title.count == 0 %>
-      <h4>検索に一致するものはありませんでした</h4>
-    <% end %>
-    </tbody>
-  <% else %>
-    <thead>
-      <tr>
-        <th>名前</th>
-        <th>タイトル</th>
-        <th>本文</th>
-      </tr>
-    </thead>
-    <tbody>
-    <h2>検索結果</h2>
-    <% @topics_introduction.each do |topic| %>
-      <tr>
-        <td>
-          <%= link_to customer_path(topic.customer.id) do %>
-            <%= topic.customer.name %>
+          </tbody>
+        <% else %>
+          <thead>
+            <tr class="table-secondary">
+              <th>名前</th>
+              <th>タイトル</th>
+              <th>本文</th>
+              <th>画像</th>
+              <th></th>
+              <th></th>
+              <th>#タグ</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          <h2 class="m-5 d-flex justify-content-center">検索結果</h2>
+          <% @topics_introduction.reverse_each do |topic| %>
+            <tr class="table-light">
+              <td>
+                <%= link_to customer_path(topic.customer.id), style: "color: black"  do %>
+                  <%= topic.customer.name %>
+                <% end %>
+              </td>
+              <td><%= topic.title %></td>
+              <td>
+                <%= link_to topic_path(topic.id), style: "color: black" do %>
+                  <%= truncate(topic.introduction, length: 25) %>
+                <% end %>
+              </td>
+              <td>
+                  <% if topic.image.present? %>
+                    <%= image_tag topic.image, size: "30x30" %>
+                  <% end %>
+                </td>
+                <td><%= render "public/favorites/btn", topic: topic %></td>
+                <td>コメント</td>
+                <td>
+                  <% if topic.category.present? %>
+                    <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+                  <% end %>
+                </td>
+                <td>
+                  <% if topic.customer == current_customer %>
+                    <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+                  <% end %>
+                </td>
+              </tr>
           <% end %>
-        </td>
-        <td><%= topic.title %></td>
-        <td><%= topic.introduction %></td>
-        </tr>
-    <% end %>
-    <% if @topics_introduction.count == 0 %>
-      <h4>検索に一致するものはありませんでした</h4>
-    <% end %>
-    </tbody>
-  <% end %>
-</table>
+          <% if @topics_introduction.count == 0 %>
+            <h4 class="m-2">検索に一致するものはありませんでした</h4>
+          <% end %>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ class Topic < ApplicationRecord
 
    validates :title, presence: true
    validates :introduction, presence: true
-   validates :category, presence: true
+   validates :category, length: { maximum: 8 }
 
   def favorited_by?(customer)
       favorites.exists?(customer_id: customer.id)

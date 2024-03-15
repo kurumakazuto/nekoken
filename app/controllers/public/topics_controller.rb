@@ -13,7 +13,7 @@ class Public::TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     @topic.customer_id = current_customer.id
     if @topic.save
-      redirect_to topic_path(@topic.id)
+      redirect_to topics_path
     else
       @customer = current_customer
       render 'public/customers/show'
@@ -28,7 +28,7 @@ class Public::TopicsController < ApplicationController
   def destroy
     topic = Topic.find(params[:id])
     topic.destroy
-    redirect_to mytopics_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

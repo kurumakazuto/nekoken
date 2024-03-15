@@ -24,6 +24,12 @@
              投稿履歴
           <% end %>
         </div>
+        <div class="row">
+          <%= link_to favorites_customer_path(@customer), class: "btn btn-danger custom-btn" do %>
+            <i class="fa-regular fa-heart"></i>
+             お気に入り
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-4">
@@ -118,6 +124,10 @@
           <tr class="table-secondary">
             <th>タイトル</th>
             <th>本文</th>
+            <th>画像</th>
+            <th></th>
+            <th></th>
+            <th>#タグ</th>
           </tr>
         </thead>
         <% @topics. each do |topic| %>
@@ -125,8 +135,20 @@
           <tr class="table-light">
             <td><%= topic.title %></td>
             <td>
-              <%= link_to admin_topic_path(topic.id) do %>
+              <%= link_to admin_topic_path(topic.id), style: "color: black"  do %>
                 <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td><%= render "public/favorites/btn", topic: topic %></td>
+            <td>コメント</td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
               <% end %>
             </td>
           </tr>

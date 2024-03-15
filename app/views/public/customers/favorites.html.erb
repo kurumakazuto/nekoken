@@ -1,20 +1,9 @@
+<h2 class="m-5 d-flex justify-content-center">お気に入り一覧</h2>
 <div class="container-fluid">
-  <div class="row d-flex justify-content-center">
-    <div class="customer-index">
-      投稿一覧
-      <%= image_tag '425674.jpg', size: "200x200" %>
-    </div>
-  </div>
-  <div class="row mt-2">
+  <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-       <div class="row d-flex justify-content-end">
-         <%= render 'public/shared/search' %>
-       </div>
-       <div class="row">
-        <%= render 'public/tagsearches/tagsearch',topics: @topics %>
-       </div>
-       <table class="table">
+      <table class="table">
         <thead>
           <tr class="table-secondary">
             <th>名前</th>
@@ -27,8 +16,8 @@
             <th></th>
           </tr>
         </thead>
-        <% @topics. reverse_each do |topic| %>
         <tbody>
+          <% @favorite_topics.reverse_each do |topic| %>
           <tr class="table-light">
             <td>
               <%= link_to customer_path(topic.customer.id), style: "color: black" do %>
@@ -55,7 +44,7 @@
             </td>
             <td>
               <% if topic.customer == current_customer %>
-                <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+                <%= link_to '削除', topics_path, method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
               <% end %>
             </td>
           </tr>

@@ -33,7 +33,7 @@
             </td>
             <td><%= customer.cat_name %></td>
             <td><%= customer.cat_gender %></td>
-            <td><%= customer.introduction %></td>
+            <td><%= truncate(customer.introduction, length: 8) %></td>
           </tr>
           <% end %>
         </tbody>

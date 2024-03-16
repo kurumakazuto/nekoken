@@ -36,14 +36,21 @@
     </div>
     <div class="col-1"></div>
     <div class="col-6 mt-5">
+      <div class="row d-flex justify-content-center">
+        <h3><%= @customer.name %>さんの投稿一覧</h3>
+      </div>
       <table class="table">
         <thead>
           <tr class="table-secondary">
             <th>タイトル</th>
             <th>本文</th>
+            <th>画像</th>
+            <th></th>
+            <th></th>
+            <th>#タグ</th>
           </tr>
         </thead>
-        <% @topics. each do |topic| %>
+        <% @topics.order(created_at: 'desc'). each do |topic| %>
         <tbody>
           <tr class="table-light">
             <td><%= topic.title %></td>
@@ -52,10 +59,23 @@
                 <%= truncate(topic.introduction, length: 25) %>
               <% end %>
             </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td><%= render "admin/favorites/btn", topic: topic %></td>
+            <td><%= topic.topic_comments.count %>コメント</td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+              <% end %>
+            </td>
           </tr>
         </tbody>
         <% end %>
       </table>
+      <%= render "public/shared/page", obj: @topics %>
     </div>
   </div>
 </div>

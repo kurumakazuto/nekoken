@@ -1,7 +1,7 @@
 class Admin::TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all
+    @topics = Topic.page(params[:page])
   end
 
   def show

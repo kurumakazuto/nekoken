@@ -11,9 +11,7 @@
        <div class="row d-flex justify-content-end">
          <%= render 'public/shared/search' %>
        </div>
-       <div class="row">
-        <%= render 'public/tagsearches/tagsearch',topics: @topics %>
-       </div>
+        <%= render 'public/tagsearches/tagsearch' %>
        <table class="table">
         <thead>
           <tr class="table-secondary">
@@ -27,7 +25,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @topics. reverse_each do |topic| %>
+        <% @topics.order(created_at: 'desc').each do |topic| %>
         <tbody>
           <tr class="table-light">
             <td>
@@ -47,7 +45,7 @@
               <% end %>
             </td>
             <td><%= render "public/favorites/btn", topic: topic %></td>
-            <td>コメント</td>
+            <td>コメント件数:<%= topic.topic_comments.count %></td>
             <td>
               <% if topic.category.present? %>
                 <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
@@ -62,6 +60,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render "public/shared/page", obj: @topics %>
     </div>
     <div class="col-1"></div>
   </div>

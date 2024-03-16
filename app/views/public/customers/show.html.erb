@@ -40,7 +40,7 @@
           <% end %>
         </div>
           <% if @customer.image.attached? %>
-            <%= image_tag customer.image, size: "300x300" %>
+            <%= image_tag @customer.image, size: "400x400" %>
           <% else %>
             <%= image_tag '709572.jpg', size: "300x300" %>
           <% end %>
@@ -103,7 +103,7 @@
           <%= @customer.name %>さんのマイページ
         </div>
         <% if @customer.image.attached? %>
-          <%= image_tag customer.image, size: "300x300" %>
+          <%= image_tag @customer.image, size: "300x300" %>
         <% else %>
           <%= image_tag '709572.jpg', size: "300x300" %>
         <% end %>
@@ -119,6 +119,9 @@
     </div>
     <div class="col-1"></div>
     <div class="col-6 mt-5">
+      <div class="row d-flex justify-content-center">
+        <h3><%= @customer.name %>さんの投稿一覧</h3>
+      </div>
       <table class="table">
         <thead>
           <tr class="table-secondary">
@@ -130,12 +133,12 @@
             <th>#タグ</th>
           </tr>
         </thead>
-        <% @topics. each do |topic| %>
+        <% @topics.order(created_at: 'desc').each do |topic| %>
         <tbody>
           <tr class="table-light">
             <td><%= topic.title %></td>
             <td>
-              <%= link_to admin_topic_path(topic.id), style: "color: black"  do %>
+              <%= link_to topic_path(topic.id), style: "color: black"  do %>
                 <%= truncate(topic.introduction, length: 25) %>
               <% end %>
             </td>
@@ -145,7 +148,7 @@
               <% end %>
             </td>
             <td><%= render "public/favorites/btn", topic: topic %></td>
-            <td>コメント</td>
+            <td><%= topic.topic_comments.count %>コメント</td>
             <td>
               <% if topic.category.present? %>
                 <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
@@ -155,6 +158,7 @@
         </tbody>
         <% end %>
       </table>
+      <%= render "public/shared/page", obj: @topics %>
     </div>
   </div>
 </div>

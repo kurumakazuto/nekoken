@@ -1,12 +1,12 @@
 class Public::TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all
+    @topics = Topic.page(params[:page])
   end
 
   def my_index
     @customer = current_customer
-    @topics = @customer.topics
+    @topics = @customer.topics.page(params[:page])
   end
 
   def create
@@ -23,6 +23,7 @@ class Public::TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @customer = @topic.customer
+    @topic_comment = TopicComment.new
   end
 
   def destroy

@@ -2,13 +2,13 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    @customers = Customer.all
+    @customers = Customer.page(params[:page])
   end
 
   def show
     @customer = Customer.find(params[:id])
     @topic = Topic.new
-    @topics = @customer.topics.all
+    @topics = @customer.topics.page(params[:page])
   end
 
   def edit
@@ -34,11 +34,12 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
-  
+
   def favorites
     @customer = Customer.find(params[:id])
     favorites = Favorite.where(customer_id: @customer.id).pluck(:topic_id)
-    @favorite_topics = Topic.find(favorites)
+    @favorite_topics = Topic.where(id: favorites).page(params[:page])
+    #上のコードは記事だと@favorite_topics = Topic(find[:favorites])だったが、単一のオブジェクトではなく配列として渡すためにwhereを使用している。
   end
 
   private

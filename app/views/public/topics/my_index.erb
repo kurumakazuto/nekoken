@@ -15,7 +15,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @topics. reverse_each do |topic| %>
+        <% @topics.order(created_at: 'desc').each do |topic| %>
         <tbody>
           <tr class="table-light">
             <td><%= topic.title %></td>
@@ -30,7 +30,7 @@
               <% end %>
             </td>
             <td><%= render "public/favorites/btn", topic: topic %></td>
-            <td>コメント</td>
+            <td><%= topic.topic_comments.count %>コメント</td>
             <td>
               <% if topic.category.present? %>
                 <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
@@ -43,6 +43,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render "public/shared/page", obj: @topics %>
     </div>
     <div class="col-1"></div>
   </div>

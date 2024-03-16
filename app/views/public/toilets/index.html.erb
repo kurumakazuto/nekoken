@@ -70,7 +70,7 @@
             <th></th>
           </tr>
         </thead>
-        <% @toilets. reverse_each do |toilet| %>
+        <% @toilets.order(created_at: 'desc')each do |toilet| %>
         <tbody>
           <tr class="table-light">
             <td><%= toilet.month %>月</td>
@@ -85,6 +85,7 @@
           </tr>
         </tbody>
       <% end %>
+      <%= paginate @toilets %>
       </table>
     </div>
     <div class="col-1"></div>

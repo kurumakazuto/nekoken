@@ -17,6 +17,10 @@
         </thead>
         <tbody>
         <h2 class="m-5 d-flex justify-content-center"><%= @word %>のタグ検索結果</h2>
+        <div class="row d-flex justify-content-end">
+         <%= render 'public/shared/search' %>
+        </div>
+        <%= render 'public/tagsearches/tagsearch' %>
         <% @topics.each do |topic| %>
           <tr class="table-light">
             <td>
@@ -47,6 +51,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render "public/shared/page", obj: @topics  %>
     </div>
     <div class="col-1"></div>
   </div>

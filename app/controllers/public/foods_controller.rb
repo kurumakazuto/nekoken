@@ -1,7 +1,7 @@
 class Public::FoodsController < ApplicationController
 
   def index
-    @foods = Food.all
+    @foods = Food.page(params[:page])
     @food = Food.new
   end
 

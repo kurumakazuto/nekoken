@@ -19,7 +19,7 @@
             <th>画像</th>
           </tr>
         </thead>
-        <% @topics.each do |topic| %>
+        <% @topics.order(created_at: 'desc'). do |topic| %>
         <tbody>
           <tr class="table-light">
             <td><%= topic.customer.id %></td>

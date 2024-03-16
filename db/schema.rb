@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2024_03_14_052913) do
   end
 
   create_table "calendars", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "content", null: false
+    t.string "title"
+    t.text "content"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2024_03_14_052913) do
     t.string "name", null: false
     t.string "cat_name", null: false
     t.string "cat_gender", null: false
-    t.text "introduction", null: false
+    t.text "introduction"
     t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

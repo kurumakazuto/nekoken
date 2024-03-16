@@ -34,7 +34,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :name, null: false
       t.string :cat_name, null: false
       t.string :cat_gender, null: false
-      t.text :introduction, null: false
+      t.text :introduction
       t.boolean :is_active, null: false, default: true
       t.timestamps null: false
     end

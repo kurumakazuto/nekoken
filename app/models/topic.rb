@@ -6,7 +6,7 @@ class Topic < ApplicationRecord
 
    has_one_attached :image
 
-   validates :title, presence: true
+   validates :title, length: { maximum: 20 }
    validates :introduction, presence: true
    validates :category, length: { maximum: 8 }
 
@@ -14,32 +14,15 @@ class Topic < ApplicationRecord
       favorites.exists?(customer_id: customer.id)
   end
 
- def self.looks(search, word)
+ def self.looks(search, word, type)
    if search == "perfect_match"
-     @topics_title = Topic.where("title LIKE?", "#{word}")
+     Topic.where("#{type} LIKE?", "#{word}")
    elsif search == "forward_match"
-     @topics_title = Topic.where("title LIKE?", "#{word}%")
+     Topic.where("#{type} LIKE?", "#{word}%")
    elsif search == "backward_match"
-     @topics_title = Topic.where("title LIKE?", "%#{word}")
+     Topic.where("#{type} LIKE?", "%#{word}")
    elsif search == "partial_match"
-     @topics_title = Topic.where("title LIKE?", "%#{word}%")
-   else
-     @topics_title = Topic.all
+     Topic.where("#{type} LIKE?", "%#{word}%")
    end
  end
-
- def self.looks(search, word)
-   if search == "perfect_match"
-     @topics_introduction = Topic.where("introduction LIKE?", "#{word}")
-   elsif search == "forward_match"
-     @topics_introduction = Topic.where("introduction LIKE?", "#{word}%")
-   elsif search == "backward_match"
-     @topics_introduction = Topic.where("introduction LIKE?", "%#{word}")
-   elsif search == "partial_match"
-     @topics_introduction = Topic.where("introduction LIKE?", "%#{word}%")
-   else
-     @topics_introduction = Topic.all
-   end
- end
-
-end
+end 

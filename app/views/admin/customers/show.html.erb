@@ -16,7 +16,7 @@
           <% end %>
         </div>
         <% if @customer.image.attached? %>
-          <%= image_tag customer.image, size: "300x300" %>
+          <%= image_tag @customer.image, size: "300x300" %>
         <% else %>
           <%= image_tag '709572.jpg', size: "300x300" %>
         <% end %>

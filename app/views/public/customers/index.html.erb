@@ -18,12 +18,12 @@
             <th>自己紹介</th>
           </tr>
         </thead>
-        <% @customers.reverse_each do |customer| %>
+        <% @customers.order(created_at: 'desc').each do |customer| %>
         <tbody>
           <tr class="table-light">
             <td>
               <% if customer.image.present? %>
-                <%= image_tag topic.image, size: "30x30" %>
+                <%= image_tag customer.image, size: "30x30" %>
               <% end %>
             </td>
             <td>
@@ -38,6 +38,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= render "public/shared/page", obj: @customers %>
     </div>
     <div class="col-1"></div>
   </div>

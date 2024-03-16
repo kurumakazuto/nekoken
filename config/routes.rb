@@ -44,5 +44,6 @@ Rails.application.routes.draw do
     resources :topics, only: [:index, :show, :edit, :update, :destroy]
     resources :customers, only: [:index, :show, :edit, :update]
     get "search" => "searches#search"
+    get 'tagsearches/search', to: 'tagsearches#search'
   end
 end

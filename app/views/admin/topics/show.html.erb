@@ -15,6 +15,7 @@
         <% end %>
         <%= @topic.introduction %>
       </div>
+      <%= render "admin/shared/topic_comment", topic: @topic, topic_comment: @topic_comment %>
     </div>
     <div class="col-3"></div>
   </div>

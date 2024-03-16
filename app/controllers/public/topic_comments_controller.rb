@@ -8,6 +8,12 @@ class Public::TopicCommentsController < ApplicationController
     redirect_to topic_path(topic)
   end
 
+  def destroy
+    topic_comment = TopicComment.find(params[:id])
+    topic_comment.destroy
+    redirect_to request.referer
+  end
+
   private
 
   def topic_comment_params

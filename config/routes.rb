@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     get 'my_topics' => 'topics#my_index', as:'mytopics'
     resources :topics, only: [:new, :create, :index, :show, :destroy] do
-      resources :topic_comments, only: [:create]
+      resources :topic_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
     patch 'customers/:id/withdraw' => 'customers#withdraw', as: 'withdraw'
@@ -45,5 +45,6 @@ Rails.application.routes.draw do
     resources :customers, only: [:index, :show, :edit, :update]
     get "search" => "searches#search"
     get 'tagsearches/search', to: 'tagsearches#search'
+    resources :topic_comments, only: [:destroy]
   end
 end

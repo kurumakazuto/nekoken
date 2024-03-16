@@ -53,7 +53,7 @@
             </td>
             <td>
               <% if topic.customer == current_customer %>
-                <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+                <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-sm btn-danger" %>
               <% end %>
             </td>
           </tr>

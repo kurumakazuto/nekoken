@@ -11,7 +11,10 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
+import "../stylesheets/simple_calendar";
+//= require jquery
+//= require rails-ujs
 
 Rails.start()
 Turbolinks.start()

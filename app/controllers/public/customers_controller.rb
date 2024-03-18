@@ -9,6 +9,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @topic = Topic.new
     @topics = @customer.topics.page(params[:page])
+    @events = Calendar.all
   end
 
   def edit

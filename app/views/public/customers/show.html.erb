@@ -3,9 +3,22 @@
   <div class="row">
     <div class="col-4 ">
       <div class="main-visual">
-        <div class="calendar">
-          カレンダー
+        <div class="row mt-3">
+          <%= link_to calendars_path, style: "color: black; font-size: 40px;" do %>
+            <i class="fa-solid fa-calendar-days"></i>
+            カレンダー
+          <% end %>
         </div>
+          <%= month_calendar events: @events do |date, events| %>
+            <%= date.day %>
+
+            <% events.each do |event| %>
+
+              <%= link_to calendars_path, style: "color: black" do %>
+                <i class="fa-solid fa-circle"></i>
+              <% end %>
+            <% end %>
+          <% end %>
         <div class="row">
           <%= link_to foods_path, class: "btn btn-success custom-btn" do %>
             <i class="fa-solid fa-bowl-food"></i>
@@ -147,7 +160,9 @@
                 <%= image_tag topic.image, size: "30x30" %>
               <% end %>
             </td>
-            <td><%= render "public/favorites/btn", topic: topic %></td>
+            <td id="favorite_btn_<%= topic.id %>">
+              <%= render "public/favorites/btn", topic: topic %>
+            </td>
             <td><%= topic.topic_comments.count %>コメント</td>
             <td>
               <% if topic.category.present? %>

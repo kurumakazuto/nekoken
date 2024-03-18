@@ -71,9 +71,8 @@ body {
 
 //マイページのカレンダー
 .calendar {
-  width: 150px;
-  height: 150px;
-  background-color: red;
+  width: 300px;
+  height: 300px;
   margin: 50px 0 50px 0;
 }
 
@@ -258,4 +257,19 @@ body {
   border-radius: 15px;    /*角を丸くする*/
 }
 
+//カレンダーの詳細ページ
+.calendar-show {
+  height: 400px;
+  padding: 100px;
+  background-color: white;
+  border: 1px solid #000000;
+}
 
+//カレンダーの編集ページ
+.calendar-edit {
+  height: 400px;
+  with: 400px;
+  padding: 50px;
+  background-color: white;
+  border: 1px solid #000000;
+}

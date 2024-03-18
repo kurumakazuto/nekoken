@@ -1,0 +1,33 @@
+<%= render "public/shared/errors", obj: @event %>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date.day %>
+
+  <% events.each do |event| %>
+
+    <%= link_to calendar_path(event.id), style: "color: black" do %>
+      <%= event.title %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= form_with model: @event do |f| %>
+
+  <div class="time my-1 ml-2">
+    <%= f.datetime_select :start_time %>
+  </div>
+
+  <div class="title">
+    <%= f.label :タイトル %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="content">
+    <%= f.label :内容 %>
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="submit ml-2">
+    <%=f.submit %>
+  </div>
+
+<% end %>

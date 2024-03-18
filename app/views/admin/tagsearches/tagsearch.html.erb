@@ -34,7 +34,7 @@
                  <%= image_tag topic.image, size: "30x30" %>
                <% end %>
             </td>
-            <td><%= render "admin/favorites/btn", topic: topic %></td>
+            <%= render "admin/favorites/btn", topic: topic %></td>
             <td>コメント</td>
             <td>
               <% if topic.category.present? %>

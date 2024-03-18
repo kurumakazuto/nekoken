@@ -44,7 +44,9 @@
                 <%= image_tag topic.image, size: "30x30" %>
               <% end %>
             </td>
-            <td><%= render "public/favorites/btn", topic: topic %></td>
+            <td id="favorite_btn_<%= topic.id %>">
+                 <%= render "public/favorites/btn", topic: topic %>
+            </td>
             <td>コメント件数:<%= topic.topic_comments.count %></td>
             <td>
               <% if topic.category.present? %>

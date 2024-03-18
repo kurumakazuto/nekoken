@@ -32,7 +32,7 @@ Rails.application.routes.draw do
         get :favorites
       end
     end
-    resources :calendars, only: [:new, :create, :index]
+    resources :calendars
     resources :foods, only: [:new, :create, :index, :destroy]
     resources :toilets, only: [:new, :create, :index, :destroy]
     get "search" => "searches#search"

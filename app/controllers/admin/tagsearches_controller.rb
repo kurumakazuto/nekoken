@@ -1,4 +1,5 @@
 class Admin::TagsearchesController < ApplicationController
+  before_action :authenticate_admin!
   
   def search
     @model = Topic

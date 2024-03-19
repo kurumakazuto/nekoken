@@ -46,6 +46,10 @@
       </div>
     </div>
     <div class="col-4">
+      <%= link_to  homes_about_path, class: "d-flex justify-content-end mt-1", style: "color: #808080" do %>
+        <i class="fa-solid fa-user"></i>
+        マイページの使い方
+      <% end %>
       <div class="main-visual">
         <div class="name">
           <%= link_to edit_customer_path(@customer),style: "color: black" do %>

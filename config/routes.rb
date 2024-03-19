@@ -40,12 +40,13 @@ Rails.application.routes.draw do
   end
   #管理者側のルーティング設定
   namespace :admin do
-    root to: 'homes#top'
-    resources :topics, only: [:index, :show, :edit, :update, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
+    root to: 'customers#index'
+    resources :topics, only: [:index, :show, :edit, :update, :destroy] do
+      resources :topic_comments, only: [:destroy]
+    end
+    resources :customers, only: [:show, :edit, :update]
     get "search" => "searches#search"
     get 'tagsearches/search', to: 'tagsearches#search'
-    resources :topic_comments, only: [:destroy]
     patch "withdraw/:id" => "customer#withdraw", as: "withdraw"
   end
 end

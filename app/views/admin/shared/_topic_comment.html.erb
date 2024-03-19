@@ -11,7 +11,7 @@
         <%= topic_comment.customer.name %>
         <%= topic_comment.created_at.strftime('%Y/%m/%d') %><br>
         <%= topic_comment.comment %>
-        <%= link_to '削除', admin_topic_comment_path(topic_comment), method: :delete, data: { confirm: '本当に削除しますか?' },class: "btn btn-sm btn-danger" %>
+        <%= link_to '削除', admin_topic_topic_comment_path(topic,topic_comment), method: :delete, data: { confirm: '本当に削除しますか?' },class: "btn btn-sm btn-danger", remote: true %>
       </div>
     </div>
   <% end %>

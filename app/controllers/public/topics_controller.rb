@@ -1,4 +1,5 @@
 class Public::TopicsController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @topics = Topic.page(params[:page])

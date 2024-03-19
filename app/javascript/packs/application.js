@@ -13,6 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/simple_calendar";
+import "../stylesheets/about_style";
 //= require jquery
 //= require rails-ujs
 

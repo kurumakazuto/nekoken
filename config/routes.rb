@@ -46,5 +46,6 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'tagsearches/search', to: 'tagsearches#search'
     resources :topic_comments, only: [:destroy]
+    patch "withdraw/:id" => "customer#withdraw", as: "withdraw"
   end
 end

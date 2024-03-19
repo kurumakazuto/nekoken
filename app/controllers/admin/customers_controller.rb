@@ -22,14 +22,26 @@ class Admin::CustomersController < ApplicationController
       render "edit"
     end
   end
-    
+
+  def withdraw
+    @customer = Customer.find(params[:id])
+    @customer.update(is_active: !@customer.is_active)
+
+    if @customer.id_active
+      flash[:notice] = "退会処理を実行しました"
+    else
+      flash[:notice] = "有効にします"
+    end
+      redirect_to admin_root_path
+  end
+
   def favorites
     @customer = Customer.find(params[:id])
     favorites = Favorite.where(customer_id: @customer.id).pluck(:topic_id)
     @favorite_topics = Topic.where(id: favorites).page(params[:page])
     #上のコードは記事だと@favorite_topics = Topic(find[:favorites])だったが、単一のオブジェクトではなく配列として渡すためにwhereを使用している。
   end
-  
+
   private
 
   def customer_params

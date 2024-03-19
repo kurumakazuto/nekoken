@@ -1,23 +1,22 @@
 class Public::TopicCommentsController < ApplicationController
 
   def create
-    topic = Topic.find(params[:topic_id])
-    comment = current_customer.topic_comments.new(topic_comment_params)
-    comment.topic_id = topic.id
-    comment.save
-    redirect_to topic_path(topic)
+    @topic = Topic.find(params[:topic_id])
+    @topic_comment = current_customer.topic_comments.new(topic_comment_params)
+    @topic_comment.topic_id = @topic.id
+    @topic_comment.save
   end
 
   def destroy
-    topic_comment = TopicComment.find(params[:id])
-    topic_comment.destroy
-    redirect_to request.referer
+    @topic = Topic.find(params[:topic_id])
+    @topic_comment = TopicComment.find(params[:id])
+    @topic_comment.destroy
   end
 
   private
 
   def topic_comment_params
-    params.require(:topic_comment).permit(:comment)
+    params.permit(:comment)
   end
 
 end

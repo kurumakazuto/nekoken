@@ -27,8 +27,8 @@
           <%= f.label :cat_gender_female, "♀" %>
 
           <h4>会員ステータス</h4>
-           <%= f.radio_button :is_active, :active %><%= f.label :is_active,"有効" %>&emsp;
-           <%= f.radio_button :is_active, :inactive %><%= f.label :is_active,"退会" %>
+           <%= f.radio_button :is_active, :true %><%= f.label :is_active,"有効" %>&emsp;
+           <%= f.radio_button :is_active, :false %><%= f.label :is_active,"退会" %>
         </div>
       </div>
       <div class="col-5">

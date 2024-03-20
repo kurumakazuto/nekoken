@@ -19,11 +19,6 @@ header {
  font-size: 30px;
 }
 
-//ヘッダーのネコケンのCSS
-.wf-nikukyu {
-  font-family: "Nikukyu";
-}
-
 .navbar-nav {
   font-size: 20px;
 }
@@ -58,6 +53,7 @@ body {
   background-color: #ffffff;
   margin: 50px auto;
   padding-left: 50px;
+  border: 1px solid #000000;
 }
 
 //ログインページ
@@ -67,6 +63,7 @@ body {
   background-color: #ffffff;
   margin: 50px auto;
   padding-left: 50px;
+  border: 1px solid #000000;
 }
 
 //マイページのカレンダー
@@ -274,6 +271,7 @@ body {
   border: 1px solid #000000;
 }
 
+//アバウトページ
 .about-top {
   padding: 50px 0 0 100px;
   width: 1000px;
@@ -310,4 +308,14 @@ body {
   background-position: center;
   background-size: cover;
   border: 1px solid #000000;
+}
+
+//レスポンシブ対応
+@media screen and (max-width: 768px) {
+
+  //ヘッダーの猫の健康管理のCSS
+  .wf-roundedmplus1c {
+   margin-left: 150px;
+   font-size: 20px;
+  }
 }

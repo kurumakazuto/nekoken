@@ -1,0 +1,185 @@
+<% if @customer == current_customer %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4 ">
+      <div class="main-visual">
+        <div class="row mt-3">
+          <%= link_to calendars_path, style: "color: black; font-size: 40px;" do %>
+            <i class="fa-solid fa-calendar-days"></i>
+            カレンダー
+          <% end %>
+        </div>
+          <%= month_calendar events: @events do |date, events| %>
+            <%= date.day %>
+
+            <% events.each do |event| %>
+
+              <%= link_to calendars_path, style: "color: black" do %>
+                <i class="fa-solid fa-circle"></i>
+              <% end %>
+            <% end %>
+          <% end %>
+        <div class="row">
+          <%= link_to foods_path, class: "btn btn-success custom-btn" do %>
+            <i class="fa-solid fa-bowl-food"></i>
+             ご飯
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to toilets_path, class: "btn btn-info custom-btn" do %>
+            <i class="fa-solid fa-toilet"></i>
+             トイレ
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to mytopics_path, class: "btn btn-secondary custom-btn" do %>
+            <i class="fa-solid fa-book-open"></i>
+             投稿履歴
+          <% end %>
+        </div>
+        <div class="row">
+          <%= link_to favorites_customer_path(@customer), class: "btn btn-danger custom-btn" do %>
+            <i class="fa-regular fa-heart"></i>
+             お気に入り
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <%= link_to  homes_about_path, class: "d-flex justify-content-end mt-1", style: "color: #808080" do %>
+        <i class="fa-solid fa-user"></i>
+        マイページの使い方
+      <% end %>
+      <div class="main-visual">
+        <div class="name">
+          <%= link_to edit_customer_path(@customer),style: "color: black" do %>
+            <%= @customer.name %>さんのマイページ
+          <% end %>
+        </div>
+          <% if @customer.image.attached? %>
+            <%= image_tag @customer.image, size: "400x400" %>
+          <% else %>
+            <%= image_tag '709572.jpg', size: "400x400" %>
+          <% end %>
+      </div>
+      <div class="cat-name">
+        <%= link_to edit_customer_path(@customer),style: "color: black" do %>
+          <%= @customer.cat_name %>
+        <% end %>
+        <%= @customer.cat_gender %>
+      </div>
+      <div class="introduction">
+        <自己紹介><br>
+        <%= @customer.introduction %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="health">
+          <%= @customer.cat_name %>の健康をチェック！
+          <%= image_tag '710087.jpg', size: "70x70" %><br><p></p>
+          猫の画像を投稿すると、ＡＩが健康をチェックしてくれます！<br>
+          例）肉球の画像など<br><p></p>
+          <投稿フォーム><br>
+        </div>
+        <div class="customer-show-errors">
+          <%= render "public/shared/errors", obj: @topic %>
+        </div>
+        <%= form_with model: @topic, url: topics_path do |f| %>
+        <div class="topic">
+          情報共有をしよう！<p></p>
+
+            <p>タイトル</p>
+            <%= f.text_field :title %>
+
+            <p>本文</p>
+            <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px" %><br><p></p>
+
+            <p>画像</p>
+            <%= f.file_field :image, accept: "image/*" %><p></p>
+
+            <p>#タグ</p>
+            <%= f.text_field :category, style: "width: 150px;" %>
+
+            <%= f.submit '投稿', style: "width: 100px;" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% else %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+      <div class="main-visual">
+        <div class="name">
+          <%= @customer.name %>さんのマイページ
+        </div>
+        <% if @customer.image.attached? %>
+          <%= image_tag @customer.image, size: "300x300" %>
+        <% else %>
+          <%= image_tag '709572.jpg', size: "300x300" %>
+        <% end %>
+      </div>
+      <div class="cat-name">
+        <%= @customer.cat_name %>
+        <%= @customer.cat_gender %>
+      </div>
+      <div class="introduction">
+        <自己紹介><br>
+        <%= @customer.introduction %>
+      </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-6 mt-5">
+      <div class="row d-flex justify-content-center">
+        <h3><%= @customer.name %>さんの投稿一覧</h3>
+      </div>
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>画像</th>
+            <th></th>
+            <th></th>
+            <th>#タグ</th>
+          </tr>
+        </thead>
+        <% @topics.order(created_at: 'desc').each do |topic| %>
+        <tbody>
+          <tr class="table-light">
+            <td><%= topic.title %></td>
+            <td>
+              <%= link_to topic_path(topic.id), style: "color: black"  do %>
+                <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td id="favorite_btn_<%= topic.id %>">
+              <%= render "public/favorites/btn", topic: topic %>
+            </td>
+            <td><%= topic.topic_comments.count %>コメント</td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+      <%= render "public/shared/page", obj: @topics %>
+    </div>
+  </div>
+</div>
+
+<% end %>

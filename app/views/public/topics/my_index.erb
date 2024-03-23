@@ -1,0 +1,52 @@
+<h2 class="m-5 d-flex justify-content-center">投稿履歴</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+       <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>画像</th>
+            <th></th>
+            <th></th>
+            <th>#タグ</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @topics.order(created_at: 'desc').each do |topic| %>
+        <tbody>
+          <tr class="table-light">
+            <td><%= topic.title %></td>
+            <td>
+              <%= link_to topic_path(topic.id), style: "color: black" do %>
+                <%= truncate(topic.introduction, length: 25) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.image.present? %>
+                <%= image_tag topic.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td id="favorite_btn_<%= topic.id %>">
+              <%= render "public/favorites/btn", topic: topic %>
+            </td>
+            <td><%= topic.topic_comments.count %>コメント</td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render "public/shared/page", obj: @topics %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

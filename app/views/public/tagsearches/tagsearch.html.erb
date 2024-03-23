@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>名前</th>
+            <th>タイトル</th>
+            <th>本文</th>
+            <th>画像</th>
+            <th></th>
+            <th></th>
+            <th>#タグ</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <h2 class="m-5 d-flex justify-content-center"><%= @word %>のタグ検索結果</h2>
+        <div class="row d-flex justify-content-end">
+         <%= render 'public/shared/search' %>
+        </div>
+        <%= render 'public/tagsearches/tagsearch' %>
+        <% @topics.each do |topic| %>
+          <tr class="table-light">
+            <td>
+              <%= link_to customer_path(topic.customer.id), style: "color: black" do %>
+                <%= topic.customer.name %>
+              <% end %>
+            </td>
+            <td><%= topic.title %></td>
+            <td><%= topic.introduction %></td>
+            <td>
+               <% if topic.image.present? %>
+                 <%= image_tag topic.image, size: "30x30" %>
+               <% end %>
+            </td>
+            <td id="favorite_btn_<%= topic.id %>">
+              <%= render "public/favorites/btn", topic: topic %>
+            </td>
+            <td>コメント</td>
+            <td>
+              <% if topic.category.present? %>
+                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+              <% end %>
+            </td>
+            <td>
+              <% if topic.customer == current_customer %>
+                <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+              <% end %>
+            </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render "public/shared/page", obj: @topics  %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

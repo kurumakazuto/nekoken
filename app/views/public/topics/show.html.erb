@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <b>会員ID：<%= @customer.id %></b>
+      <b><%= @customer.name %>さん</b>
+      <div class="topic-title">
+      <h5><b>タイトル</b></h5>
+        <%= @topic.title %>
+      </div>
+      <div class="topic-introduction">
+        <h5><b>本文</b></h5>
+        <% if @topic.image.present? %>
+          <%= image_tag @topic.image, size: "200x200" %>
+        <% end %>
+        <%= @topic.introduction %>
+      </div>
+      <div id="admin_topic_comment">
+        <%= render "public/shared/topic_comment", topic: @topic, topic_comment: @topic_comment %>
+      </div>
+    <div class="col-3"></div>
+  </div>
+</div>
+<div>

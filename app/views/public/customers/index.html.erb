@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="customer-index">
+      会員一覧
+      <%= image_tag '601710.jpg', size: "200x200" %>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>画像</th>
+            <th>名前</th>
+            <th>猫の名前</th>
+            <th>性別</th>
+            <th>自己紹介</th>
+          </tr>
+        </thead>
+        <% @customers.order(created_at: 'desc').each do |customer| %>
+        <tbody>
+          <tr class="table-light">
+            <td>
+              <% if customer.image.present? %>
+                <%= image_tag customer.image, size: "30x30" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to customer_path(customer.id), style: "color: black" do %>
+                <%= customer.name %>
+              <% end %>
+            </td>
+            <td><%= customer.cat_name %></td>
+            <td><%= customer.cat_gender %></td>
+            <td><%= truncate(customer.introduction, length: 8) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render "public/shared/page", obj: @customers %>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

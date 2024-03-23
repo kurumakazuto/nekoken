@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-3"></div>
+    <div class="col-6 calendar-show">
+      <div class="row">
+        <h3><%= @event.title %></h3>
+      </div>
+      <div class="row" style="font-size: 20px;">
+        <%= @event.start_time.strftime("%Y-%m-%d %H:%M") %>
+      </div>
+      <div class="row" style="font-size: 20px;">
+        <%= @event.content %>
+        <%= link_to edit_calendar_path(@event.id),class:"btn btn-secondary ml-2" do %>
+          <i class="fa-solid fa-gears"></i>
+          編集
+        <% end %>
+        <%= link_to '削除', calendar_path(@event.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-sm btn-danger ml-4" %>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
+

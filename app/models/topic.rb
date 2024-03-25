@@ -6,13 +6,12 @@ class Topic < ApplicationRecord
 
    has_one_attached :image
 
-   validates :title, length: { maximum: 20 }
-   validates :introduction, presence: true
+   validates :title, presence: true, length: { maximum: 20 }
+   validates :introduction, presence: true, length: { maximum: 200 }
    validates :category, length: { maximum: 8 }
 
 
   def favorited_by?(customer)
-     return false if customer.nil?
      favorites.exists?(customer_id: customer.id)
   end
 

@@ -14,19 +14,11 @@ import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/simple_calendar";
 import "../stylesheets/about_style";
+import "../stylesheets/responsive";
 //= require jquery
 //= require rails-ujs
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-$(function(){
-  $('.name a').mouseover(function(){
-    $('.name a').css({'color': 'purple'});
-  });
-  $('.name a').mouseout(function(){
-    $('.name a').css({'color': 'black'});
-  });
-});
 

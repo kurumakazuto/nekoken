@@ -26,7 +26,7 @@ class Public::CalendarsController < ApplicationController
   def update
     @event = Calendar.find(params[:id])
     if @event.update(calendar_params)
-      redirect_to calendar_path(@event)
+      redirect_to calendars_path
     else
       render "edit"
     end

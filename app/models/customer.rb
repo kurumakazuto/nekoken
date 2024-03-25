@@ -13,8 +13,8 @@ class Customer < ApplicationRecord
   has_many :foods, dependent: :destroy
   has_many :toilets, dependent: :destroy
 
-  validates :name, presence: true
-  validates :cat_name, presence: true
+  validates :name, presence: true, length: { maximum: 10 }
+  validates :cat_name, presence: true, length: { maximum: 10 }
   validates :cat_gender, presence: true
   validates :introduction, length: { maximum: 200 }
 

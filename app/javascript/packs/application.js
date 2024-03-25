@@ -14,9 +14,11 @@ import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/simple_calendar";
 import "../stylesheets/about_style";
+import "../stylesheets/responsive";
 //= require jquery
 //= require rails-ujs
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+

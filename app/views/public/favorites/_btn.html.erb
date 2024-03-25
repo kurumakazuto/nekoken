@@ -1,3 +1,4 @@
+<% if customer_signed_in? %>
 <% if topic.favorited_by?(current_customer) %>
   <%= link_to topic_favorites_path(topic), method: :delete, remote: true do %>
     <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
@@ -8,4 +9,10 @@
     <i class="fas fa-heart" aria-hidden="true"></i>
     <%= topic.favorites.count %> いいね
   <% end %>
+<% end %>
+<% else %>
+ <%= link_to new_customer_registration_path do %>
+  <i class="fas fa-heart" aria-hidden="true"></i>
+   <%= topic.favorites.count %>いいね
+<% end %>
 <% end %>

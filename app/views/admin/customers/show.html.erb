@@ -70,7 +70,7 @@
             <td><%= topic.topic_comments.count %>コメント</td>
             <td>
               <% if topic.category.present? %>
-                <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>
+                <%= link_to topic.category,admin_tagsearches_search_path(content: topic.category) %>
               <% end %>
             </td>
           </tr>

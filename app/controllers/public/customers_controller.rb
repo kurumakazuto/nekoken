@@ -1,5 +1,6 @@
 class Public::CustomersController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, except: [:show]
+  before_action :is_matching_login_customer, only: [:edit, :update]
 
   def index
     @customers = Customer.page(params[:page])
@@ -9,7 +10,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @topic = Topic.new
     @topics = @customer.topics.page(params[:page])
-    @events = Calendar.all
+    @events = Calendar.where(customer_id: current_customer.id)
   end
 
   def edit
@@ -48,4 +49,12 @@ class Public::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :email, :encryted_password, :cat_name, :cat_gender, :introduction, :is_active, :image)
   end
+
+  def is_matching_login_customer
+    customer = Customer.find(params[:id])
+    unless customer.id == current_customer.id
+      redirect_to topics_path
+    end
+  end
+
 end

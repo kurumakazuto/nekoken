@@ -27,13 +27,13 @@
                     <% @topics.order(created_at: 'desc').each do |topic| %>
                       <tr class="table-light">
                         <td>
-                          <%= link_to customer_path(topic.customer.id), style: "color: black"  do %>
+                          <%= link_to customer_path(topic.customer.id) do %>
                             <%= topic.customer.name %>
                           <% end %>
                         </td>
                         <td><%= topic.title %></td>
                         <td>
-                          <%= link_to topic_path(topic.id), style: "color: black" do %>
+                          <%= link_to topic_path(topic.id) do %>
                             <%= truncate(topic.introduction, length: 25) %>
                           <% end %>
                         </td>
@@ -53,7 +53,7 @@
                         </td>
                         <td>
                           <% if topic.customer == current_customer %>
-                            <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？", style: "color: #808080" %>
+                            <%= link_to '削除', topic_path(topic.id), method: :delete, "data-confirm" => "本当に削除しますか？",class: "btn btn-sm btn-danger"%>
                           <% end %>
                         </td>
                       </tr>

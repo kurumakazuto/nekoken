@@ -1,5 +1,6 @@
 class Public::FavoritesController < ApplicationController
-
+  before_action :authenticate_customer!
+  
   def create
     @topic = Topic.find(params[:topic_id])
     favorite = current_customer.favorites.new(topic_id: @topic.id)

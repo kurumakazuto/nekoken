@@ -1,10 +1,10 @@
 <% if @customer == current_customer %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4 ">
+    <div class="col-md-4 ">
       <div class="main-visual">
         <div class="row mt-3">
-          <%= link_to calendars_path, style: "color: black; font-size: 40px;" do %>
+          <%= link_to calendars_path, style: "font-size: 40px;" do %>
             <i class="fa-solid fa-calendar-days"></i>
             カレンダー
           <% end %>
@@ -45,16 +45,14 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <%= link_to  homes_about_path, class: "d-flex justify-content-end mt-1", style: "color: #808080" do %>
         <i class="fa-solid fa-user"></i>
         マイページの使い方
       <% end %>
       <div class="main-visual">
         <div class="name">
-          <%= link_to edit_customer_path(@customer),style: "color: black" do %>
-            <%= @customer.name %>さんのマイページ
-          <% end %>
+          <%= @customer.name %>さんのマイページ
         </div>
           <% if @customer.image.attached? %>
             <%= image_tag @customer.image, size: "400x400" %>
@@ -63,17 +61,19 @@
           <% end %>
       </div>
       <div class="cat-name">
-        <%= link_to edit_customer_path(@customer),style: "color: black" do %>
           <%= @customer.cat_name %>
-        <% end %>
         <%= @customer.cat_gender %>
       </div>
       <div class="introduction">
         <自己紹介><br>
         <%= @customer.introduction %>
       </div>
+       <%= link_to edit_customer_path(@customer.id),class:"btn btn-secondary mt-2" do %>
+        <i class="fa-solid fa-gears"></i>
+        編集
+      <% end %>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="main-visual">
         <div class="health">
           <%= @customer.cat_name %>の健康をチェック！
@@ -114,7 +114,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="main-visual">
         <div class="name">
           <%= @customer.name %>さんのマイページ
@@ -135,7 +135,7 @@
       </div>
     </div>
     <div class="col-1"></div>
-    <div class="col-6 mt-5">
+    <div class="col-md-6 mt-5">
       <div class="row d-flex justify-content-center">
         <h3><%= @customer.name %>さんの投稿一覧</h3>
       </div>
@@ -155,7 +155,7 @@
           <tr class="table-light">
             <td><%= topic.title %></td>
             <td>
-              <%= link_to topic_path(topic.id), style: "color: black"  do %>
+              <%= link_to topic_path(topic.id) do %>
                 <%= truncate(topic.introduction, length: 25) %>
               <% end %>
             </td>

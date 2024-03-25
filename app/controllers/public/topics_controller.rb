@@ -1,5 +1,5 @@
 class Public::TopicsController < ApplicationController
-  before_action :authenticate_customer!
+   before_action :authenticate_customer!, except: [:index, :show,]
 
   def index
     @topics = Topic.page(params[:page])
@@ -17,6 +17,7 @@ class Public::TopicsController < ApplicationController
       redirect_to topics_path
     else
       @customer = current_customer
+      @events = Calendar.where(customer_id: current_customer.id)
       render 'public/customers/show'
     end
   end

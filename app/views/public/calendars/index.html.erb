@@ -4,7 +4,7 @@
 
   <% events.each do |event| %>
 
-    <%= link_to calendar_path(event.id), style: "color: black" do %>
+    <%= link_to calendar_path(event.id) do %>
       <%= event.title %>
     <% end %>
   <% end %>

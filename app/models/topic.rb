@@ -10,8 +10,10 @@ class Topic < ApplicationRecord
    validates :introduction, presence: true
    validates :category, length: { maximum: 8 }
 
+
   def favorited_by?(customer)
-      favorites.exists?(customer_id: customer.id)
+     return false if customer.nil?
+     favorites.exists?(customer_id: customer.id)
   end
 
  def self.looks(search, word, type)
@@ -25,4 +27,4 @@ class Topic < ApplicationRecord
      Topic.where("#{type} LIKE?", "%#{word}%")
    end
  end
-end 
+end

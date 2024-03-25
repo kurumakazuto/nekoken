@@ -1,7 +1,7 @@
 <% if @customer == current_customer %>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4 ">
+    <div class="col-md-4 ">
       <div class="main-visual">
         <div class="row mt-3">
           <%= link_to calendars_path, style: "color: black; font-size: 40px;" do %>
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <%= link_to  homes_about_path, class: "d-flex justify-content-end mt-1", style: "color: #808080" do %>
         <i class="fa-solid fa-user"></i>
         マイページの使い方
@@ -73,7 +73,7 @@
         <%= @customer.introduction %>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="main-visual">
         <div class="health">
           <%= @customer.cat_name %>の健康をチェック！
@@ -114,7 +114,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="main-visual">
         <div class="name">
           <%= @customer.name %>さんのマイページ
@@ -135,7 +135,7 @@
       </div>
     </div>
     <div class="col-1"></div>
-    <div class="col-6 mt-5">
+    <div class="col-md-6 mt-5">
       <div class="row d-flex justify-content-center">
         <h3><%= @customer.name %>さんの投稿一覧</h3>
       </div>

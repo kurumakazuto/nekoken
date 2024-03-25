@@ -20,3 +20,13 @@ import "../stylesheets/about_style";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(function(){
+  $('.name a').mouseover(function(){
+    $('.name a').css({'color': 'purple'});
+  });
+  $('.name a').mouseout(function(){
+    $('.name a').css({'color': 'black'});
+  });
+});
+

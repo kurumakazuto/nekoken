@@ -1,7 +1,7 @@
 class Public::CalendarsController < ApplicationController
 
   def index
-    @events = Calendar.all
+    @events = Calendar.where(customer_id: current_customer.id)
     @event = Calendar.new
   end
 
@@ -18,11 +18,11 @@ class Public::CalendarsController < ApplicationController
   def show
     @event = Calendar.find(params[:id])
   end
-  
+
   def edit
     @event = Calendar.find(params[:id])
   end
-  
+
   def update
     @event = Calendar.find(params[:id])
     if @event.update(calendar_params)
@@ -31,7 +31,7 @@ class Public::CalendarsController < ApplicationController
       render "edit"
     end
   end
-  
+
   def destroy
     event = Calendar.find(params[:id])
     event.destroy

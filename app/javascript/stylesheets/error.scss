@@ -1,0 +1,16 @@
+//会員詳細のエラー文
+.customer-show-errors {
+  margin: 20px 20px 0 0;
+  color: red;
+}
+
+//会員編集のエラー文
+.customer-edit-errors {
+  margin-left: 400px;
+  color: red;
+}
+
+//ご飯投稿のエラー文
+.food-errors,.toilet-errors {
+  color: red;
+}

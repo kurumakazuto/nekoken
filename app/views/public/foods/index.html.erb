@@ -1,84 +1,104 @@
-
 <div class="container-fluid">
   <div class="row my-3 d-flex justify-content-center">
-    <div class="food-index">
+    <div class="toilet-index">
       ご飯
       <%= image_tag '481908.jpg', size: "200x200" %>
     </div>
   </div>
   <%= form_with model: @food do |f| %>
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
-        <div class="food-errors">
-          <%= render "public/shared/errors", obj: @food %>
-        </div>
-        <h4>ご飯の記録</h4>
-        <table class="table">
-          <thead>
-            <tr class="table-success">
-              <th>月</th>
-              <th>日</th>
-              <th>曜日</th>
-              <th>時間帯</th>
-              <th>ご飯の名前</th>
-              <th>グラム</th>
-              <th>備考</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="table-light">
-              <td><%= f.select :month, *[1..12]  %>月</td>
-              <td><%= f.select :day, *[1..31]  %>日</td>
-              <td><%= f.select :day_of_week, [["月"],["火"],["水"],["木"],["金"],["土"],["日"]],{} %>曜日</td>
-              <td><%= f.select :time_zone, *[1..24]  %>時</td>
-              <td><%= f.text_field :name, size:10 %></td>
-              <td><%= f.text_field :amount, size:5 %>g</td>
-              <td><%= f.text_field :remarks %></td>
-              <td><%= f.submit '記録する' %></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-1"></div>
-    </div>
-  <% end %>
   <div class="row">
     <div class="col-1"></div>
-    <div class="col-10 mt-3">
-      <h4>ご飯の記録一覧</h4>
-      <table class="table">
-        <thead>
-          <tr class="table-success">
-            <th>月</th>
-            <th>日</th>
-            <th>曜日</th>
-            <th>時間帯</th>
-            <th>ご飯の名前</th>
-            <th>グラム</th>
-            <th>備考</th>
-            <th></th>
-          </tr>
-        </thead>
-        <% @foods.order(created_at: 'desc').each do |food| %>
-        <tbody>
-          <tr class="table-light">
-            <td><%= food.month %>月</td>
-            <td><%= food.day %>日</td>
-            <td><%= food.day_of_week %>曜日</td>
-            <td><%= food.time_zone %>時</td>
-            <td><%= food.name %></td>
-            <td><%= food.amount %>g</td>
-            <% if food.remarks %>
-              <td><%= food.remarks %></td>
-            <% end %>
-            <td><%= link_to '削除', food_path(food.id), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger"  %></td>
-          </tr>
-        </tbody>
-      <% end %>
-      </table>
+    <div class="col-10">
+      <div class="toilet-errors">
+        <%= render "public/shared/errors", obj: @food %>
+      </div>
+      <h4>ご飯の記録</h4>
+      <div class="row d-flex align-content-center table-success" style="height: 50px">
+        <div class="col-1">
+          <b>月</b>
+        </div>
+        <div class="col-1">
+          <b>日</b>
+        </div>
+        <div class="col-1">
+          <b>曜日</b>
+        </div>
+        <div class="col-2">
+          <b>時間帯</b>
+        </div>
+        <div class="col-2">
+          <b>ご飯の名前</b>
+        </div>
+        <div class="col-2">
+          <b>グラム</b>
+        </div>
+        <div class="col-2">
+          <b>備考</b>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      <div class="row d-flex align-content-center table-light" style="height: 50px">
+        <div class="col-1">
+          <%= f.select :month, *[1..12]  %><b>月</b>
+        </div>
+        <div class="col-1">
+          <%= f.select :day, *[1..31]  %><b>日</b>
+        </div>
+        <div class="col-1">
+          <%= f.select :day_of_week, [["月"],["火"],["水"],["木"],["金"],["土"],["日"]],{} %><b>曜日</b>
+        </div>
+        <div class="col-2">
+          <%= f.select :time_zone, *[1..24]  %><b>時</b>
+        </div>
+        <div class="col-2">
+          <%= f.text_field :name, size:10 %>
+        </div>
+        <div class="col-2">
+          <%= f.text_field :amount, size:10 %>
+        </div>
+        <div class="col-2">
+          <%= f.text_field :remarks %>
+        </div>
+         <div class-"col-1">
+          <%= f.submit '記録する' %>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <h4>ご飯の記録一覧</h4>
+          <table class="table">
+            <thead>
+              <tr class="table-success">
+                <th>月</th>
+                <th>日</th>
+                <th>曜日</th>
+                <th>時間帯</th>
+                <th>ご飯の名前</th>
+                <th>グラム</th>
+                <th>備考</th>
+                <th></th>
+              </tr>
+            </thead>
+            <% @foods.order(created_at: 'desc').each do |food| %>
+            <tbody>
+              <tr class="table-light">
+                <td><%= food.month %>月</td>
+                <td><%= food.day %>日</td>
+                <td><%= food.day_of_week %>曜日</td>
+                <td><%= food.time_zone %>時</td>
+                <td><%= food.name %></td>
+                <td><%= food.amount %>g</td>
+                <% if food.remarks %>
+                  <td><%= food.remarks %></td>
+                <% end %>
+                <td><%= link_to '削除', food_path(food.id), method: :delete, "data-confirm" => "本当に削除しますか？" ,class: "btn btn-sm btn-danger"  %></td>
+              </tr>
+            </tbody>
+          <% end %>
+          </table>
+      </div>
+      <%= render "public/shared/page", obj: @foods %>
     </div>
     <div class="col-1"></div>
   </div>
+  <% end %>
 </div>

@@ -1,0 +1,21 @@
+//会員詳細の要素を中央揃えする
+.main-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+//会員詳細の会員の名前
+.name {
+  margin-bottom: 20px;
+  font-family: "M PLUS Rounded 1c";
+  font-size: 20px;
+}
+
+//会員詳細の猫の名前
+.cat-name {
+  margin-left: 80px;
+  font-family: "M PLUS Rounded 1c";
+  font-size: 30px;
+}

@@ -12,4 +12,5 @@ class Admin::TopicCommentsController < ApplicationController
   def topic_comment_params
     params.permit(:comment)
   end
+  
 end

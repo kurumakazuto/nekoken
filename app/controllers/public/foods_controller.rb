@@ -9,11 +9,11 @@ class Public::FoodsController < ApplicationController
     @food = current_customer.foods.new(food_params)
     # @food = Food.new(food_params)
     # @food.customer = current_customer
-    
+
     if @food.save
       redirect_to foods_path
     else
-      @foods = Food.all
+      @foods = Food.page(params[:page])
       render :index
     end
   end

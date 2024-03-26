@@ -16,6 +16,7 @@
             <th>猫の名前</th>
             <th>性別</th>
             <th>自己紹介</th>
+            <td></td>
           </tr>
         </thead>
         <% @customers.order(created_at: 'desc').each do |customer| %>
@@ -27,13 +28,24 @@
               <% end %>
             </td>
             <td>
-              <%= link_to customer_path(customer.id) do %>
+              <%= link_to (customer.is_active ? customer_path(customer.id) : withdrawn_path) do %>
                 <%= customer.name %>
               <% end %>
             </td>
             <td><%= customer.cat_name %></td>
             <td><%= customer.cat_gender %></td>
             <td><%= truncate(customer.introduction, length: 8) %></td>
+            <td>
+              <% if customer.is_active? %>
+                <p class="font-weight-bolder text-success">
+                  <%= '有効' %>
+                </p>
+              <% else %>
+                <p class="font-weight-bolder text-muted">
+                  <%= '退会' %>
+                </p>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>

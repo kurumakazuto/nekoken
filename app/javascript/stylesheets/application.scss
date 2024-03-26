@@ -28,22 +28,6 @@ body {
   background-size: cover;
 }
 
-//publicのトップページ
-.top {
-  width: 600px;
-  height: 350px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  margin: 50px auto;
-  padding-left: 20px;
-}
-
-//publicのトップページ
-.wf-sawarabigothic {
-  font-family: "Sawarabi Gothic";
-  font-size: 30px;
-  margin: 50px auto;
-}
 
 //新規登録ページ
 .sign-up{
@@ -65,76 +49,7 @@ body {
   border: 1px solid #000000;
 }
 
-//マイページのカレンダー
-.calendar {
-  width: 300px;
-  height: 300px;
-  margin: 50px 0 50px 0;
-}
 
-//マイページのご飯とトイレボタン
-.custom-btn {
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  margin: 30px 0;
-}
-
-//会員詳細の要素を中央揃えする
-.main-visual {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-//会員詳細の会員の名前
-.name {
-  margin-bottom: 20px;
-  font-family: "M PLUS Rounded 1c";
-  font-size: 20px;
-}
-
-//会員詳細の猫の名前
-.cat-name {
-  margin-left: 80px;
-  font-family: "M PLUS Rounded 1c";
-  font-size: 30px;
-}
-
-//マイページの自己紹介
-.introduction {
-  flex-grow: 1;
-  white-space: pre-line;
-  background-color: #ffffff;
-  margin-top: 20px;
-  padding: 0 10px 10px 10px;
-  font-family: "M PLUS Rounded 1c";
-  font-size: 20px;
-  border: 1px solid #000000;
-}
-
-//マイページ右上側の猫の健康チェック
-.health {
-  width: 350px;
-  height: 300px;
-  background-color: #ffffe0;
-  margin-top: 50px;
-  padding: 10px;
-  font-family: "M PLUS Rounded 1c";
-  font-size: 20px;
-}
-
-//マイページ右下の情報共有部分
-.topic {
-  width: 350px;
-  height: 700px;
-  background-color: #ffffe0;
-  margin-top: 50px;
-  padding: 10px;
-  font-family: "M PLUS Rounded 1c";
-  font-size: 20px;
-}
 
 //会員編集画面
 .edit {
@@ -209,24 +124,6 @@ body {
   font-size: 40px;
 }
 
-
-//会員詳細のエラー文
-.customer-show-errors {
-  margin: 20px 20px 0 0;
-  color: red;
-}
-
-//会員編集のエラー文
-.customer-edit-errors {
-  margin-left: 400px;
-  color: red;
-}
-
-//ご飯投稿のエラー文
-.food-errors,.toilet-errors {
-  color: red;
-}
-
 //退会確認画面
 .unsubscribe {
   margin-top: 100px;
@@ -234,78 +131,5 @@ body {
   width: 600px;
   height: 200px;
   background-color:white;
-}
-
-/*ページネーション自体のデザイン*/
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
-}
-
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
-}
-
-/*ホバー時のデザイン*/
-.pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
-}
-
-//カレンダーの詳細ページ
-.calendar-show {
-  height: 400px;
-  padding: 100px;
-  background-color: white;
-  border: 1px solid #000000;
-}
-
-//カレンダーの編集ページ
-.calendar-edit {
-  height: 400px;
-  with: 400px;
-  padding: 50px;
-  background-color: white;
-  border: 1px solid #000000;
-}
-
-//アバウトページ
-.about-top {
-  padding: 50px 0 0 100px;
-  width: 1000px;
-  height: 300px;
-  background-image: url("../images/img01.jpg");
-  background-position: center;
-  background-size: cover;
-  border: 1px solid #000000;
-  opacity: 1;
-}
-
-.about-1 {
-  width: 500px;
-  height: 550px;
-  background-image: url("../images/explanation1.png");
-  background-position: center;
-  background-size: cover;
-  border: 1px solid #000000;
-}
-
-.about-2 {
-  width: 500px;
-  height: 950px;
-  background-image: url("../images/explanation2.png");
-  background-position: center;
-  background-size: cover;
-  border: 1px solid #000000;
-}
-
-.about-3 {
-  width: 500px;
-  height: 1200px;
-  background-image: url("../images/explanation3.png");
-  background-position: center;
-  background-size: cover;
-  border: 1px solid #000000;
 }
 

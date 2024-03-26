@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :authenticate_customer!, except: [:show]
+  before_action :authenticate_customer!
   before_action :is_matching_login_customer, only: [:edit, :update]
 
   def index
@@ -36,7 +36,10 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
-
+  
+  def withdrawn
+  end
+  
   def favorites
     @customer = Customer.find(params[:id])
     favorites = Favorite.where(customer_id: @customer.id).pluck(:topic_id)

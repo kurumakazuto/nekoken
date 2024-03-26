@@ -2,6 +2,7 @@ class Public::SearchesController < ApplicationController
   before_action :authenticate_customer!
 
   def search
+    #byebug
     @type = params[:type]
     @word = params[:word]
     @search = params[:search]

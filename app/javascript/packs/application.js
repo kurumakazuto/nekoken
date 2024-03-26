@@ -12,8 +12,13 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
+import "../stylesheets/top";
+import "../stylesheets/mypage";
+import "../stylesheets/customer_show";
 import "../stylesheets/simple_calendar";
 import "../stylesheets/about_style";
+import "../stylesheets/error";
+import "../stylesheets/pagenate";
 import "../stylesheets/responsive";
 //= require jquery
 //= require rails-ujs

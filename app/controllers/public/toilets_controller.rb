@@ -10,7 +10,7 @@ class Public::ToiletsController < ApplicationController
     if @toilet.save
       redirect_to toilets_path
     else
-      @toilets = Toilet.all
+      @toilets = Toilet.page(params[:page])
       render :index
     end
   end

@@ -20,7 +20,7 @@
           <% @favorite_topics.reverse_each do |topic| %>
           <tr class="table-light">
             <td>
-              <%= link_to customer_path(topic.customer.id) do %>
+              <%= link_to (topic.customer.is_active ? customer_path(topic.customer.id) : withdrawn_path) do %>
                 <%= topic.customer.name %>
               <% end %>
             </td>

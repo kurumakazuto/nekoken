@@ -3,7 +3,7 @@ class Food < ApplicationRecord
   belongs_to :customer
 
   validates :name, presence: true, length: { maximum: 15 }
-  validates :amount, presence: true, length: { maximum: 5 }
+  validates :amount, presence: true, length: { maximum: 5 }, numericality: { only_integer: true }
   validates :month, presence: true
   validates :day, presence: true
   validates :day_of_week, presence: true

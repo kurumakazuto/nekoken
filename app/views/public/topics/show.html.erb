@@ -6,12 +6,12 @@
       <b><%= @customer.name %>さん</b>
       <div class="topic-title">
       <h5><b>タイトル</b></h5>
-        <%= @topic.title %>
+        <b><%= @topic.title %></b>
       </div>
       <div class="topic-introduction">
         <h5><b>本文</b></h5>
         <% if @topic.image.present? %>
-          <%= image_tag @topic.image, size: "200x200" %>
+          <%= image_tag @topic.image, size: "300x300" %>
         <% end %>
         <%= @topic.introduction %>
       </div>

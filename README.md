@@ -19,7 +19,8 @@
 - 猫のケアなどについて、気軽に情報を集めたいとき
 
 ## 設計書
-後ほど作成予定
+![696a9f8a120a1fd5455a4220fe301941](https://github.com/kurumakazuto/nekoken/assets/153343673/60efa96a-885e-475b-b82e-281324a4c4f2)
+
 ## 開発環境
 - OS:Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -28,6 +29,9 @@
 - IDE:Cloud9
 
 ### 使用素材
-出典元
-- イラストAC
-- photo AC
+ロゴ作成
+- CANVA(https://www.canva.com/)
+
+フリー素材として以下を使用
+- イラストAC(https://www.ac-illust.com/)
+- photo AC(https://www.photo-ac.com/)

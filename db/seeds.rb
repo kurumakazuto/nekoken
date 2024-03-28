@@ -11,11 +11,9 @@
 #end
 puts "seedの実行を開始"
 
-#Admin.create!(
-  #email: 'admin@example.com',
-  #password: 'password',
-  #password_confirmation: 'password'
-#)
+Admin.find_or_create_by!(email: "admin@example.com") do |admin|
+  admin.password = ENV['SECRET_KEY']
+end
 
 サンプル次郎 = Customer.find_or_create_by!(email: "jirou@example.com") do |customer|
   customer.name = "サンプル次郎"
@@ -256,11 +254,6 @@ Topic.find_or_create_by!(title: "高いところ大好き") do |topic|
   topic.introduction = "今日のぞみが冷蔵庫の上にのぼりました！キャットタワーもあるのに、色々なところに行きたいんだね笑"
   topic.category = "高いところ大好き"
   topic.customer = サンプルのぞみ
-end
-
-TopicComment.find_or_create_by!(comment: "目のゴミはそんなに心配しなくても大丈夫ですよ！人間と同じで、涙と一緒に流れ出ます！") do |topic_comment|
-  topic_comment.customer = サンプル太郎
-  topic_comment.topic.title =　目にゴミが
 end
 
 puts "seedの実行が完了しました"

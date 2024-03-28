@@ -6,3 +6,12 @@
    <% end %>
 <% end %>
 
+<!--メンターの方に教えて頂いた別の書き方-->
+<%# topics_with_tags = Topic.order(created_at: 'desc').where.not(category: nil).limit(20) %>
+
+<%# topics_with_tags.each do |topic| %>
+  <%#<div class="col-1 m-1 btn btn-info btn-sm">
+    <%= link_to topic.category, tagsearches_search_path(content: topic.category), class: "text-white" %>
+  <%#</div>
+<%# end %>
+

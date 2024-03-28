@@ -5,6 +5,6 @@ class Admin::TagsearchesController < ApplicationController
     @model = Topic
     @word = params[:content]
     @topics = Topic.where("category LIKE?","%#{@word}%").page(params[:page])
-    render "admin/tagsearches/tagsearch"
+    #render "admin/tagsearches/tagsearch"
   end
 end

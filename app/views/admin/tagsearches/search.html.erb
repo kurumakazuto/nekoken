@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
+      <h2 class="m-5 d-flex justify-content-center"><%= @word %>のタグ検索結果</h2>
+        <div class="row d-flex justify-content-end">
+         <%= render 'admin/shared/search' %>
+        </div>
       <table class="table">
         <thead>
           <tr class="table-secondary">
@@ -15,10 +19,6 @@
           </tr>
         </thead>
         <tbody>
-        <h2 class="m-5 d-flex justify-content-center"><%= @word %>のタグ検索結果</h2>
-        <div class="row d-flex justify-content-end">
-         <%= render 'admin/shared/search' %>
-        </div>
         <%= render 'admin/tagsearches/tagsearch' %>
         <% @topics.each do |topic| %>
           <tr class="table-light">

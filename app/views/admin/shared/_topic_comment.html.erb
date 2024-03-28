@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag '709572.jpg', size: "100x100" %>
         <% end %>
-      <div class="mx-2">
+      <div class="mx-2 comment">
         <%= topic_comment.customer.name %>
         <%= topic_comment.created_at.strftime('%Y/%m/%d') %><br>
         <%= topic_comment.comment %>

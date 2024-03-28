@@ -1,5 +1,5 @@
 class Public::TagsearchesController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate!
 
   def search
     @model = Topic

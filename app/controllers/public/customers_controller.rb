@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate!
   before_action :is_matching_login_customer, only: [:edit, :update]
 
   def index

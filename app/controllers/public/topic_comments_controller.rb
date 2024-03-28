@@ -1,5 +1,4 @@
 class Public::TopicCommentsController < ApplicationController
-  before_action :authenticate_customer!
 
   def create
     @topic = Topic.find(params[:topic_id])

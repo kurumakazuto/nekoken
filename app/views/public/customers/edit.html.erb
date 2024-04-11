@@ -2,12 +2,12 @@
   <div class="customer-edit-errors">
     <%= render "public/shared/errors", obj: @customer %>
   </div>
-  <div class="edit">
+  <div class="customer-edit">
     <%= form_with model: @customer do |f| %>
       <div class="row">
         <div class="col-2"></div>
         <div class="col-5">
-          <div class="edit-name">
+          <div class="customer-edit-name">
             <h3>＜会員編集＞</h3><p></p>
 
             <h4>名前</h4>
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="col-5">
-          <div class="edit-introduction">
+          <div class="customer-edit-introduction">
             <h4>紹介文</h4>
             <%= f.text_area :introduction, style: "height: 250px; width: 250px;" %><br>
             <%= f.submit '変更', style: "width: 100px;" %>

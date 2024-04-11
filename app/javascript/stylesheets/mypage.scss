@@ -15,8 +15,8 @@
   margin: 30px 0;
 }
 
-//マイページ画面の自己紹介
-.introduction {
+//マイページ画面の自己紹介(会員・管理者詳細画面でも使用)
+.customer-introduction {
   flex-grow: 1;
   white-space: pre-line;
   background-color: #ffffff;
@@ -28,7 +28,7 @@
 }
 
 //マイページ画面右下の情報共有部分
-.topic {
+.my-topic {
   width: 350px;
   height: 700px;
   background-color: #ffffe0;

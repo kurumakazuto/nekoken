@@ -33,9 +33,15 @@ module Vision
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       response_body = JSON.parse(response.body)
-      pp response body
       # APIレスポンス出力
-
+      if (error = response_body['responses'][0]['error']).present?
+        raise error['message']
+      else
+        target = response_body["responses"][0]["safeSearchAnnotation"]
+        is_adult = target["adult"] && target["adult"] == "POSSIBLE"
+        is_violence = target["violence"] && target["violence"] == "POSSIBLE"
+        !(is_adult || is_violence)
+      end
     end
   end
 end

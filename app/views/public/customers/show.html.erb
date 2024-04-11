@@ -51,7 +51,7 @@
         マイページの使い方
       <% end %>
       <div class="main-visual">
-        <div class="name">
+        <div class="customer-name">
           <%= @customer.name %>さんのマイページ
         </div>
           <% if @customer.image.attached? %>
@@ -64,7 +64,7 @@
           <%= @customer.cat_name %>
         <%= @customer.cat_gender %>
       </div>
-      <div class="introduction">
+      <div class="customer-introduction">
         <自己紹介><br>
         <%= @customer.introduction %>
       </div>
@@ -79,7 +79,7 @@
           <%= render "public/shared/errors", obj: @topic %>
         </div>
         <%= form_with model: @topic, url: topics_path do |f| %>
-        <div class="topic">
+        <div class="my-topic">
           情報共有をしよう！<p></p>
 
             <p>タイトル</p>
@@ -109,7 +109,7 @@
     <div class="col-1"></div>
     <div class="col-md-4">
       <div class="main-visual">
-        <div class="name">
+        <div class="customer-name">
           <%= @customer.name %>さんのマイページ
         </div>
         <% if @customer.image.attached? %>
@@ -122,7 +122,7 @@
         <%= @customer.cat_name %>
         <%= @customer.cat_gender %>
       </div>
-      <div class="introduction">
+      <div class="customer-introduction">
         <自己紹介><br>
         <%= @customer.introduction %>
       </div>

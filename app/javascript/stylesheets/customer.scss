@@ -7,7 +7,7 @@
 }
 
 //会員詳細画面の会員の名前
-.name {
+.customer-name {
   margin-bottom: 20px;
   font-family: "M PLUS Rounded 1c";
   font-size: 20px;
@@ -20,8 +20,8 @@
   font-size: 30px;
 }
 
-//会員編集画面
-.edit {
+//会員編集画面(管理者でも使用)
+.customer-edit {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
 }
 
 //会員編集画面の左側
-.edit-name {
+.customer-edit-name {
   margin-top: 30px;
   padding: 30px 0 0 30px;
   width: 800px;
@@ -39,15 +39,15 @@
 
 //管理者の会員編集画面の左側
 .admin-edit-name {
-   margin-top: 30px;
+  margin-top: 30px;
   padding: 30px 0 0 30px;
   width: 800px;
   height: 450px;
   background-color: #ffffe0;
 }
 
-//会員編集画面の右側
-.edit-introduction {
+//会員編集画面の右側(管理者でも使用)
+.customer-edit-introduction {
   margin-top: 30px;
   padding: 30px 0 0 30px;
 }

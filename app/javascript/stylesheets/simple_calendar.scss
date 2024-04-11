@@ -1,4 +1,4 @@
-//カレンダーの詳細ページ
+//カレンダー詳細画面
 .calendar-show {
   height: 400px;
   padding: 100px;
@@ -6,7 +6,7 @@
   border: 1px solid #000000;
 }
 
-//カレンダーの編集ページ
+//カレンダー編集画面
 .calendar-edit {
   height: 400px;
   with: 400px;
@@ -15,6 +15,7 @@
   border: 1px solid #000000;
 }
 
+//カレンダー自体のデザイン
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;

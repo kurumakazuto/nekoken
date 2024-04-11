@@ -75,13 +75,6 @@
     </div>
     <div class="col-md-4">
       <div class="main-visual">
-        <div class="health">
-          <%= @customer.cat_name %>の健康をチェック！
-          <%= image_tag '710087.jpg', size: "70x70" %><br><p></p>
-          猫の画像を投稿すると、ＡＩが健康をチェックしてくれます！<br>
-          例）肉球の画像など<br><p></p>
-          <投稿フォーム><br>
-        </div>
         <div class="customer-show-errors">
           <%= render "public/shared/errors", obj: @topic %>
         </div>

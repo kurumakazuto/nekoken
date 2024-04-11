@@ -1,6 +1,5 @@
 @use '~bootstrap/scss/bootstrap';
 
-
 * {
   margin: 0;
   padding: 0;
@@ -28,7 +27,6 @@ body {
   background-size: cover;
 }
 
-
 //新規登録ページ
 .sign-up{
   width: 300px;
@@ -49,46 +47,6 @@ body {
   border: 1px solid #000000;
 }
 
-
-
-//会員編集画面
-.edit {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-//会員編集画面の左側
-.edit-name {
-  margin-top: 30px;
-  padding: 30px 0 0 30px;
-  width: 800px;
-  height: 400px;
-  background-color: #ffffe0;
-}
-
-//管理者側の会員編集画面の左側
-.admin-edit-name {
-   margin-top: 30px;
-  padding: 30px 0 0 30px;
-  width: 800px;
-  height: 450px;
-  background-color: #ffffe0;
-}
-
-//会員編集画面の右側
-.edit-introduction {
-  margin-top: 30px;
-  padding: 30px 0 0 30px;
-}
-
-//会員の一覧
-.customer-index {
-  font-family: "M PLUS Rounded 1c";
-  font-size: 40px;
-}
-
 //管理者ログイン画面
 .admin-sign-in {
   width: 300px;
@@ -99,26 +57,7 @@ body {
   border: 1px solid #000000;
 }
 
-//topicの詳細ページ
-.topic-title {
-  margin: 30px 0 30px 0;
-  padding: 10px;
-  width: 100%;
-  height: 70px;
-  background-color: white;
-  border: 1px solid #000000;
-}
-
-//topicの詳細ページ
-.topic-introduction {
-  padding: 0 10px 10px 10px;
-  background-color: white;
-  border: 1px solid #000000;
-  flex-grow: 1;
-  white-space: pre-line;
-}
-
-//ご飯とトイレ一覧
+//ご飯・トイレ一覧画面
 .food-index,.toilet-index {
   font-family: "M PLUS Rounded 1c";
   font-size: 40px;

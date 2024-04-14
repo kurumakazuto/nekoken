@@ -78,7 +78,8 @@
         </div>
         <%= form_with model: @topic, url: topics_path do |f| %>
         <div class="my-topic">
-          情報共有をしよう！<p></p>
+          情報共有をしよう！
+          <%= image_tag '709572.jpg', size: "100x100" %>
 
             <p>タイトル</p>
             <%= f.text_field :title %>

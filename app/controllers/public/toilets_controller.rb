@@ -26,4 +26,5 @@ class Public::ToiletsController < ApplicationController
   def toilet_params
     params.require(:toilet).permit(:name, :month, :day, :day_of_week, :time_zone, :remarks )
   end
+  
 end

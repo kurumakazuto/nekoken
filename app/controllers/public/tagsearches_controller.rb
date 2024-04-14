@@ -1,4 +1,5 @@
 class Public::TagsearchesController < ApplicationController
+  
   before_action :authenticate!
 
   def search
@@ -7,4 +8,5 @@ class Public::TagsearchesController < ApplicationController
     @topics = Topic.where("category LIKE?","%#{@word}%").page(params[:page])
     #render "public/tagsearches/tagsearch"
   end
+  
 end

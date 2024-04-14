@@ -1,4 +1,5 @@
 class Admin::TopicsController < ApplicationController
+  
   before_action :authenticate_admin!
 
   def index
@@ -18,4 +19,5 @@ class Admin::TopicsController < ApplicationController
   def topic_params
     params.require(:topic).permit(:title, :introduction)
   end
+  
 end

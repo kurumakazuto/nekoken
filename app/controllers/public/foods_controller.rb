@@ -29,4 +29,5 @@ class Public::FoodsController < ApplicationController
   def food_params
     params.require(:food).permit(:name, :amount, :month, :day, :day_of_week, :time_zone, :remarks )
   end
+
 end

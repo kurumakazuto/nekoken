@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  
   before_action :authenticate!
 
   def create
@@ -12,4 +13,5 @@ class Public::FavoritesController < ApplicationController
     favorite = current_customer.favorites.find_by(topic_id: @topic.id)
     favorite.destroy
   end
+  
 end

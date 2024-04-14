@@ -8,7 +8,9 @@
         <%= image_tag '709572.jpg', size: "100x100" %>
         <% end %>
       <div class="mx-2 comment">
-        <%= topic_comment.customer.name %>
+        <%= link_to customer_path(topic_comment.customer.id) do %>
+          <%= topic_comment.customer.name %>
+        <% end %>
         <%= topic_comment.created_at.strftime('%Y/%m/%d') %><br>
         <%= topic_comment.comment %>
         <% if topic_comment.customer == current_customer %>

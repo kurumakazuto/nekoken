@@ -14,9 +14,7 @@
 
             <% events.each do |event| %>
 
-              <%= link_to calendars_path, style: "color: black" do %>
-                <i class="fa-solid fa-circle"></i>
-              <% end %>
+              <i class="fa-solid fa-circle"></i>
             <% end %>
           <% end %>
         <div class="row">
@@ -109,7 +107,7 @@
     <div class="col-1"></div>
     <div class="col-md-4">
       <div class="main-visual">
-        <div class="customer-name">
+        <div class="name">
           <%= @customer.name %>さんのマイページ
         </div>
         <% if @customer.image.attached? %>

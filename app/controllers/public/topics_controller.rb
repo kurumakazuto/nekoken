@@ -13,7 +13,11 @@ class Public::TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.customer_id = current_customer.id
-    @topic.image_check = Vision.get_image_data(topic_params[:image])
+    if topic_params[:image] != nil
+      @topic.image_check = Vision.get_image_data(topic_params[:image])
+    else
+      @topic.image_check = true
+    end
     if @topic.save
       redirect_to topics_path
     else

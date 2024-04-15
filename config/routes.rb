@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     get "search" => "searches#search"
     get 'tagsearches/search', to: 'tagsearches#search'
   end
+
   #管理者側のルーティング設定
   namespace :admin do
     root to: 'customers#index'
@@ -50,4 +51,5 @@ Rails.application.routes.draw do
     get 'tagsearches/search', to: 'tagsearches#search'
     patch "withdraw/:id" => "customer#withdraw", as: "withdraw"
   end
+
 end

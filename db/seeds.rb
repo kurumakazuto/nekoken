@@ -21,6 +21,7 @@ end
   customer.cat_gender = "♂"
   customer.introduction = "初めまして。よろしくお願いいたします。"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプル花子 = Customer.find_or_create_by!(email: "hanako@example.com") do |customer|
@@ -30,6 +31,7 @@ end
   customer.introduction = "我が家の自慢の愛猫です。"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer2.jpg"), filename:"sample-customer2.jpg")
+  customer.image_check = true
 end
 
 サンプルのぞみ = Customer.find_or_create_by!(email: "nozomi@example.com") do |customer|
@@ -39,6 +41,7 @@ end
   customer.introduction = "すごい可愛いです！。"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer3.jpg"), filename:"sample-customer3.jpg")
+  customer.image_check = true
 end
 
 サンプルたけし = Customer.find_or_create_by!(email: "takeshi@example.com") do |customer|
@@ -46,6 +49,7 @@ end
   customer.cat_name = "たけし"
   customer.cat_gender = "♂"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプルさやか = Customer.find_or_create_by!(email: "sayaka@example.com") do |customer|
@@ -55,6 +59,7 @@ end
   customer.introduction = "よろしくお願いします。"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer4.jpg"), filename:"sample-customer4.jpg")
+  customer.image_check = true
 end
 
 サンプル健二 = Customer.find_or_create_by!(email: "kenji@example.com") do |customer|
@@ -63,6 +68,7 @@ end
   customer.cat_gender = "♂"
   customer.introduction = "よろしくお願いいたします!"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプルたくみ = Customer.find_or_create_by!(email: "takumi@example.com") do |customer|
@@ -71,6 +77,7 @@ end
   customer.cat_gender = "♂"
   customer.introduction = "ケアの情報集めてます～"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプルよしこ = Customer.find_or_create_by!(email: "yoshiko@example.com") do |customer|
@@ -80,6 +87,7 @@ end
   customer.introduction = "とても元気な子です(^^♪"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer5.jpg"), filename:"sample-customer5.jpg")
+  customer.image_check = true
 end
 
 サンプルさだこ = Customer.find_or_create_by!(email: "sadako@example.com") do |customer|
@@ -87,6 +95,7 @@ end
   customer.cat_name = "さだこ"
   customer.cat_gender = "♀"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプルかずお = Customer.find_or_create_by!(email: "kazuo@example.com") do |customer|
@@ -95,6 +104,7 @@ end
   customer.cat_gender = "♂"
   customer.introduction = "色々教えてください！"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプルかずお = Customer.find_or_create_by!(email: "kazuo@example.com") do |customer|
@@ -103,6 +113,7 @@ end
   customer.cat_gender = "♂"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer6.jpg"), filename:"sample-customer6.jpg")
+  customer.image_check = true
 end
 
 サンプルつばさ = Customer.find_or_create_by!(email: "tsubasa@example.com") do |customer|
@@ -110,6 +121,7 @@ end
   customer.cat_name = "つばさ"
   customer.cat_gender = "♂"
   customer.password = "password"
+  customer.image_check = true
 end
 
 サンプル太郎 = Customer.find_or_create_by!(email: "tarou@example.com") do |customer|
@@ -119,6 +131,7 @@ end
   customer.introduction = "こんにちは。よろしくお願いいたします。"
   customer.password = "password"
   customer.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer1.jpg"), filename:"sample-customer1.jpg")
+  customer.image_check = true
 end
 
 Topic.find_or_create_by!(title: "今日も可愛い") do |topic|

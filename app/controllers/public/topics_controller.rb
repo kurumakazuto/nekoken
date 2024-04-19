@@ -1,5 +1,5 @@
 class Public::TopicsController < ApplicationController
-  
+
    before_action :authenticate!, except: [:index, :show,]
 
   def index
@@ -45,5 +45,5 @@ class Public::TopicsController < ApplicationController
   def topic_params
     params.require(:topic).permit(:title, :introduction, :category, :image)
   end
-  
+
 end

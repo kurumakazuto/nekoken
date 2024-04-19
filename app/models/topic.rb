@@ -1,20 +1,20 @@
 class Topic < ApplicationRecord
-   
+
+   has_one_attached :image
+
    attr_accessor :image_check
 
    has_many :favorites, dependent: :destroy
    has_many :topic_comments, dependent: :destroy
    belongs_to :customer
 
-   has_one_attached :image
-
    validates :title, presence: true, length: { maximum: 20 }
    validates :introduction, presence: true, length: { maximum: 200 }
    validates :category, length: { maximum: 8 }
-   
+
    before_validation :check_image
-   
-   
+
+
    def check_image
       if !self.image_check
          self.errors.add(:image, "は不適切な画像です")

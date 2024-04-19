@@ -6,6 +6,8 @@ class Customer < ApplicationRecord
 
   has_one_attached :image
 
+  attr_accessor :image_check
+
   has_many :favorites, dependent: :destroy
   has_many :topic_comments, dependent: :destroy
   has_many :topics, dependent: :destroy
@@ -17,6 +19,14 @@ class Customer < ApplicationRecord
   validates :cat_name, presence: true, length: { maximum: 10 }
   validates :cat_gender, presence: true
   validates :introduction, length: { maximum: 200 }
+
+  before_validation :check_image
+
+  def check_image
+      if !self.image_check
+         self.errors.add(:image, "は不適切な画像です")
+      end
+   end
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |customer|

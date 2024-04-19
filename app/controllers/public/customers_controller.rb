@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  
+
   before_action :authenticate!
   before_action :is_matching_login_customer, only: [:edit, :update]
 
@@ -20,6 +20,11 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
+    if customer_params[:image] != nil
+      @customer.image_check = Vision.get_image_data(customer_params[:image])
+    else
+      @customer.image_check = true
+    end
     if @customer.update(customer_params)
       redirect_to customer_path(current_customer)
     else

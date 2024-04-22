@@ -34,6 +34,7 @@ class Customer < ApplicationRecord
      customer.name = "ゲスト"
      customer.cat_name = "ゲスト"
      customer.cat_gender = "♂"
+     customer.image_check = true
     end
   end
 

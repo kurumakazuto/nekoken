@@ -34,6 +34,10 @@ class Public::TopicsController < ApplicationController
     @topic_comment = TopicComment.new
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+  end
+
   def destroy
     topic = Topic.find(params[:id])
     topic.destroy

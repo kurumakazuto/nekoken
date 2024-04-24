@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about'
     get 'my_topics' => 'topics#my_index', as:'mytopics'
-    resources :topics, only: [:new, :create, :index, :show, :destroy] do
+    resources :topics, only: [:new, :create, :index, :show, :edit, :destroy] do
       resources :topic_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end

@@ -13,6 +13,7 @@
         <table class="table">
           <thead>
             <tr class="table-secondary">
+              <th></th>
               <th>名前</th>
               <th>タイトル</th>
               <th>本文</th>
@@ -26,6 +27,7 @@
           <tbody>
             <% @topics.order(created_at: 'desc').each do |topic| %>
               <tr class="table-light">
+                <td><%= topic.created_at.strftime('%Y/%m/%d %H:%M') %></td>
                 <td>
                   <%= link_to (topic.customer.is_active ? customer_path(topic.customer.id) : withdrawn_path) do %>
                     <%= topic.customer.name %>
@@ -45,7 +47,7 @@
                 <td id="favorite_btn_<%= topic.id %>">
                   <%= render "public/favorites/btn", topic: topic %>
                 </td>
-                <td>コメント</td>
+                <td>コメント件数:<%= topic.topic_comments.count %></td>
                 <td>
                   <% if topic.category.present? %>
                     <%= link_to topic.category,tagsearches_search_path(content: topic.category) %>

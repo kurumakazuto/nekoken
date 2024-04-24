@@ -42,7 +42,7 @@
                   <% end %>
                 </td>
                 <td><%= render "admin/favorites/btn", topic: topic %></td>
-                <td>コメント</td>
+                <td>コメント件数:<%= topic.topic_comments.count %></td>
                 <td>
                   <% if topic.category.present? %>
                     <%= link_to topic.category,admin_tagsearches_search_path(content: topic.category) %>

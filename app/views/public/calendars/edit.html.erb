@@ -2,7 +2,9 @@
   <div class="row mt-5">
     <div class="col-3"></div>
     <div class="col-6 calendar-edit">
-      <%= render "public/shared/errors", obj: @event %>
+      <div class="calendars-errors">
+        <%= render "public/shared/errors", obj: @event %>
+      </div>
       <%= form_with model: @event, method: :patch do |f| %>
       <h3><カレンダー編集></h3>
       <div class="row">

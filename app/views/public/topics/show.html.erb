@@ -11,10 +11,15 @@
       <div class="topic-introduction">
         <h5><b>本文</b></h5>
         <% if @topic.image.present? %>
-          <%= image_tag @topic.image, size: "300x300" %>
+          <%= image_tag @topic.image,width: "200px" %>
         <% end %>
         <%= @topic.introduction %>
       </div>
+      <%= @topic.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+      <%= link_to edit_topic_path(@topic.id),class:"btn btn-secondary mt-2 float-right" do %>
+        <i class="fa-solid fa-gears"></i>
+        編集
+      <% end %>
       <div id="topic_comment">
         <%= render "public/shared/topic_comment", topic: @topic, topic_comment: @topic_comment %>
       </div>

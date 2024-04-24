@@ -56,7 +56,7 @@
             <td><%= topic.title %></td>
             <td>
               <%= link_to admin_topic_path(topic.id) do %>
-                <%= truncate(topic.introduction, length: 25) %>
+                <%= truncate(topic.introduction, length: 15) %>
               <% end %>
             </td>
             <td>

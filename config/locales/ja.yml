@@ -211,4 +211,6 @@ ja:
         amount: グラム
       toilet:
         name: トイレの内容
+      calendar:
+        title: タイトル
 

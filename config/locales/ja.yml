@@ -190,3 +190,25 @@ ja:
       previous: "&lsaquo; 前"
       next: "次 &rsaquo;"
       truncate: "..."
+
+    ja:
+  activerecord:
+    attributes:
+      customer:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        name: 名前
+        cat_name: 猫の名前
+        cat_gender: 猫の性別
+        image: 画像
+      topic:
+        title: タイトル
+        introduction: 本文
+        image: 画像
+      food:
+        name: ご飯の名前
+        amount: グラム
+      toilet:
+        name: トイレの内容
+

@@ -83,16 +83,16 @@
           <%= image_tag '710087.jpg', size: "100x100" %>
 
             <p>タイトル</p>
-            <%= f.text_field :title %>
+            <%= f.text_field :title, placeholder: "20文字以内" %>
 
             <p>本文</p>
-            <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px" %><br><p></p>
+            <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px", placeholder: "200文字以内" %><br><p></p>
 
             <p>画像</p>
             <%= f.file_field :image, accept: "image/*" %><p></p>
 
             <p>#タグ</p>
-            <%= f.text_field :category, style: "width: 150px;" %>
+            <%= f.text_field :category, style: "width: 150px;", placeholder: "8文字以内" %>
 
             <%= f.submit '投稿', style: "width: 100px;" %>
         <% end %>

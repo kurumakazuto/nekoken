@@ -17,7 +17,7 @@ class Topic < ApplicationRecord
 
    def check_image
       if !self.image_check
-         self.errors.add(:image, "は不適切な画像です")
+         self.errors.add(:image, "は不適切です")
       end
    end
 

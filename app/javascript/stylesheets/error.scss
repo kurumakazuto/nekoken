@@ -10,7 +10,11 @@
   color: red;
 }
 
-//ご飯投稿画面のエラー文
+//ご飯・トイレ投稿画面のエラー文
 .food-errors,.toilet-errors {
+  color: red;
+}
+
+#error_explanation {
   color: red;
 }

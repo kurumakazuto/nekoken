@@ -17,7 +17,7 @@
             <%= f.text_field :cat_name %><p></p>
 
             <h4>猫の画像</h4>
-            <%= f.file_field :image, accept: "image/*" %><p></p>
+            <%= f.file_field :image, accept: "image/*",value: @customer.image %><p></p>
 
             <h4>猫の性別</h4>
             <%= f.radio_button :cat_gender, :♂ %>

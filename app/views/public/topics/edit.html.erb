@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="topic-edit-errors">
+        <%= render "public/shared/errors", obj: @topic %>
+      </div>
+      <div class="topic-edit">
+        <div class="topic-edit-content">
+          <%= form_with model: @topic do |f| %>
+            <h3>＜投稿編集＞</h3><p></p>
+
+            <h4>タイトル</h4>
+            <%= f.text_field :title %><p></p>
+
+            <h4>本文</h4>
+            <%= f.text_area :introduction, style: "height: 300px; width: 250px; font-size:15px;" %><p></p>
+
+            <h4>画像</h4>
+            <%= f.file_field :image, accept: "image/*",value: @topic.image %><p></p>
+
+            <h4>#タグ</h4>
+
+            <%= f.text_field :category, style: "width: 150px;" %><p></p>
+
+            <%= f.submit '更新', style: "width: 100px;" %>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

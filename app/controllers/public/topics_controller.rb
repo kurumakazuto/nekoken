@@ -38,6 +38,20 @@ class Public::TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
 
+  def update
+    @topic = Topic.find(params[:id])
+    if topic_params[:image] != nil
+      @topic.image_check = Vision.get_image_data(topic_params[:image])
+    else
+      @topic.image_check = true
+    end
+    if @topic.update(topic_params)
+      redirect_to topic_path(@topic.id)
+    else
+      render "edit"
+    end
+  end
+
   def destroy
     topic = Topic.find(params[:id])
     topic.destroy

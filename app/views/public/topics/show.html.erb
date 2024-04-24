@@ -16,9 +16,11 @@
         <%= @topic.introduction %>
       </div>
       <%= @topic.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-      <%= link_to edit_topic_path(@topic.id),class:"btn btn-secondary mt-2 float-right" do %>
-        <i class="fa-solid fa-gears"></i>
-        編集
+      <% if @topic.customer == current_customer %>
+        <%= link_to edit_topic_path(@topic.id),class:"btn btn-secondary mt-2 float-right" do %>
+          <i class="fa-solid fa-gears"></i>
+          編集
+        <% end %>
       <% end %>
       <div id="topic_comment">
         <%= render "public/shared/topic_comment", topic: @topic, topic_comment: @topic_comment %>

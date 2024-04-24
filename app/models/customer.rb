@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
   validates :cat_gender, presence: true
   validates :introduction, length: { maximum: 200 }
 
-  before_validation :check_image
+  before_validation :check_image, on: :update
 
   def check_image
       if !self.image_check

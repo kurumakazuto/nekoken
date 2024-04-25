@@ -19,7 +19,12 @@
 - 猫のケアなどについて、気軽に情報を集めたいとき
 
 ## 設計書
+
+### ER図
 ![696a9f8a120a1fd5455a4220fe301941](https://github.com/kurumakazuto/nekoken/assets/153343673/60efa96a-885e-475b-b82e-281324a4c4f2)
+
+### アプリケーション詳細設計書
+https://docs.google.com/spreadsheets/d/183al0xkw_p7jwaMWqwMLiFuKpoZsY-V_gvnGwRFxrFs/edit?usp=sharing
 
 ## 開発環境
 - OS:Linux(CentOS)

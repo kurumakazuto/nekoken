@@ -1,4 +1,7 @@
 # サイト名：猫の健康管理（ネコケン）
+
+![nekoken_スクリーンショット](https://github.com/kurumakazuto/nekoken/assets/153343673/b76fc290-2bd3-416f-8862-d34b5a962481)
+
 ## サイト概要
 ### サイトテーマ
 猫の健康管理を目的とし、ご飯やトイレの内容などを記録する機能がある。
@@ -20,6 +23,9 @@
 
 ## 設計書
 
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/1l7cy51KMgdRd9lbroRf275-cGN23xeyZ/edit?usp=sharing&ouid=104391269188743917773&rtpof=true&sd=true
+
 ### ER図
 ![696a9f8a120a1fd5455a4220fe301941](https://github.com/kurumakazuto/nekoken/assets/153343673/60efa96a-885e-475b-b82e-281324a4c4f2)
 
@@ -28,10 +34,39 @@ https://docs.google.com/spreadsheets/d/183al0xkw_p7jwaMWqwMLiFuKpoZsY-V_gvnGwRFx
 
 ## 開発環境
 - OS:Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク:Ruby on Rails
+- 言語
+  * HTML,CSS
+  * JavaScript
+  * Ruby 3.1.2
+  * SQL
+- フレームワーク:Ruby on Rails 6.1.7.7
 - JSライブラリ:jQuery
+- 外部API:Google Vision API(画像認識)
 - IDE:Cloud9
+
+### AWS構成図
+![デプロイ構成図スクリーンショット](https://github.com/kurumakazuto/nekoken/assets/153343673/d51f0c97-1499-476b-b477-4812820f0ec3)
+
+## 機能一覧
+- 会員登録、ログイン機能(devise)
+- 会員機能
+  * プロフィール画像(ActiveStorage)
+  * 画像の判別(Google Vision API)
+- 投稿機能
+  * 投稿画像(ActiveStorage)
+  * 画像の判別(Google Vision API)
+- ご飯記録機能
+- トイレ記録機能
+- いいね機能(Ajax)
+- コメント機能(Ajax)
+- ページネーション機能(kaminari)
+- カレンダー機能(simple_calendar)
+- あいまい検索機能
+- タグ検索機能
+- レイアウト(bootstrap)
+
+## テスト
+- テスト仕様書
 
 ### 使用素材
 ロゴ作成

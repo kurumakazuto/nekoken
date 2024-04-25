@@ -63,7 +63,6 @@ https://docs.google.com/spreadsheets/d/183al0xkw_p7jwaMWqwMLiFuKpoZsY-V_gvnGwRFx
 - あいまい検索機能
 - タグ検索機能
 - レイアウト(bootstrap)
-  * レスポンシブ対応してあるので、スマートフォンでもご利用できます。
 
 ## テスト
 - テスト仕様書

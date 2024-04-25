@@ -45,7 +45,6 @@ https://docs.google.com/spreadsheets/d/183al0xkw_p7jwaMWqwMLiFuKpoZsY-V_gvnGwRFx
 - IDE:Cloud9
 
 ### AWS構成図
-![デプロイ構成図スクリーンショット](https://github.com/kurumakazuto/nekoken/assets/153343673/d51f0c97-1499-476b-b477-4812820f0ec3)
 
 ## 機能一覧
 - 会員登録、ログイン機能(devise)
